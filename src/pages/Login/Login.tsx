@@ -1,8 +1,11 @@
 import { Field, Formik, Form } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { loginThunk } from "../../redux/auth/operations";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     email: "",
     password: "",
@@ -10,7 +13,7 @@ const Login = () => {
 
   const handleSubmit = (values, options: any) => {
     options.resetForm();
-    console.log(values);
+    dispatch(loginThunk(values));
   };
 
   return (
@@ -27,8 +30,6 @@ const Login = () => {
           <p>Немає аккаунта?</p>
           <Link to="/register">Тиць</Link>
         </Form>
-
-    
       </Formik>
     </div>
   );
