@@ -8,8 +8,16 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
 import Calendar from "./pages/Calendar/Calendar";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getMeThunk } from "./redux/auth/operations";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMeThunk());
+  }, [dispatch]);
+
   return (
     <div>
       <Routes>
@@ -19,8 +27,8 @@ function App() {
           <Route path="calendar" element={<Calendar />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
