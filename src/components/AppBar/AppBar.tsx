@@ -19,6 +19,7 @@ const AppBar = () => {
         <li>
           <NavLink to="/about">Про мене</NavLink>
         </li>
+
         {!isLoggendIn && (
           <li>
             <NavLink to="/login">Вхід</NavLink>
@@ -31,9 +32,14 @@ const AppBar = () => {
         )}
 
         {isLoggendIn && (
-          <li>
-            <button onClick={() => dispatch(logoutThunk())}>Вихід</button>
-          </li>
+          <>
+            <li>
+              <NavLink to="/calendar">Календар</NavLink>
+            </li>
+            <li>
+              <button onClick={() => dispatch(logoutThunk())}>Вихід</button>
+            </li>
+          </>
         )}
       </ul>
     </div>

@@ -11,6 +11,8 @@ import Calendar from "./pages/Calendar/Calendar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getMeThunk } from "./redux/auth/operations";
+import { PrivateRoute } from "./Routes/PrivateRoute";
+import { PublicRoute } from "./Routes/PublicRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,11 +26,33 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="calendar" element={<Calendar />} />
+          <Route
+            path="calendar"
+            element={
+              <PrivateRoute>
+                <Calendar />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
       </Routes>
     </div>
   );
