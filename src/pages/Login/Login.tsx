@@ -5,6 +5,8 @@ import { Link, Navigate } from "react-router-dom";
 import { loginThunk } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selector";
 import styles from "./Login.module.css";
+import Layout from "../../components/Layout/Layout";
+import AppBar from "../../components/AppBar/AppBar";
 
 const Login = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
@@ -25,9 +27,10 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <div className={styles.textBackground}>
+      {<AppBar/>}
+      {/* "<div className={styles.textBackground}>
         <h2 className={styles.title}>Психолог Аліна Смєлянець</h2>
-      </div>
+      </div>" */}
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={styles.form}>
           <Field

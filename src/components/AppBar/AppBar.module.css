@@ -1,0 +1,59 @@
+
+.appBar {
+    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозора чорна підкладка */
+    color: #fff; /* Білий текст */
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    /* border-radius: 50px; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .appBar h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #f0f0f0; /* Світло-сірий текст */
+  }
+  
+  .navList {
+    
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    color: #fff;
+  }
+  
+  .navItem a {
+    text-decoration: none;
+    color: #ccc; /* Світло-сірий текст для посилань */
+    transition: color 0.3s ease;
+  }
+  
+  .navItem a:hover {
+    color: #fff; /* Підсвітка тексту при наведенні */
+  }
+  
+  .logoutButton {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .logoutButton:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  
