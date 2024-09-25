@@ -9,18 +9,23 @@ import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
 import Calendar from "./pages/Calendar/Calendar";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMeThunk } from "./redux/auth/operations";
 import { PrivateRoute } from "./Routes/PrivateRoute";
 import { PublicRoute } from "./Routes/PublicRoute";
+import { selectIsRefreshing } from "./redux/auth/selector";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeThunk());
   }, [dispatch]);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
