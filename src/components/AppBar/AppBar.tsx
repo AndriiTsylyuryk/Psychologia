@@ -16,9 +16,7 @@ const AppBar = () => {
         <li>
           <NavLink to="/">Додому</NavLink>
         </li>
-        <li>
-          <NavLink to="/about">Про мене</NavLink>
-        </li>
+       
 
         {!isLoggendIn && (
           <li>
@@ -33,6 +31,9 @@ const AppBar = () => {
 
         {isLoggendIn && (
           <>
+           <li>
+          <NavLink to="/about">Про мене</NavLink>
+        </li>
             <li>
               <NavLink to="/calendar">Календар</NavLink>
             </li>

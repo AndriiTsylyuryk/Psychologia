@@ -1,0 +1,87 @@
+.container {
+  color: #333;
+  background-image: url("/src/img/DSC05500.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding: 20px; */
+  position: relative;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 80%; */
+  margin-top: 148px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.text {
+  font-size: 14px;
+  color: #333;
+}
+
+.textBackground {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 5px;
+    border-radius: 30px; /* Закруглені краї */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2; 
+    position: relative; 
+  }
+  
+
+.link {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registration {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title,
+.form,
+.text,
+.link {
+  position: relative; /* Для відображення поверх накладеного шару */
+  z-index: 2; /* Забезпечуємо, що текст поверх інших елементів */
+}
