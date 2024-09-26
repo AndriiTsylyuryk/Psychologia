@@ -26,7 +26,7 @@ const Register = () => {
        <div className={styles.overlay}></div>
       {<AppBar/>}
       <Fade>
-      <h2 className={styles.title}>Реєстрація</h2>
+      {/* <h2 className={styles.title}>Реєстрація</h2> */}
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={styles.form}>
           <Field
@@ -48,11 +48,12 @@ const Register = () => {
           <button className={styles.button} type="submit">
             Вхід
           </button>
-
+          <div className={styles.register}>
           <p className={styles.text}>Вже маєш аккаунт?</p>
           <Link className={styles.link} to="/login">
             Тиць
           </Link>
+          </div>
         </Form>
       </Formik>
       </Fade>
