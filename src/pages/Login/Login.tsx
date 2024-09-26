@@ -7,6 +7,7 @@ import { selectIsLoggedIn } from "../../redux/auth/selector";
 import styles from "./Login.module.css";
 import Layout from "../../components/Layout/Layout";
 import AppBar from "../../components/AppBar/AppBar";
+import { Fade } from "react-awesome-reveal";
 
 const Login = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
@@ -26,12 +27,11 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.overlay}></div>
+     
       {<AppBar/>}
       {/* "<div className={styles.textBackground}>
         <h2 className={styles.title}>Психолог Аліна Смєлянець</h2>
-      </div>" */}
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      </div>" */}<Fade><Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={styles.form}>
           <Field
             name="email"
@@ -54,7 +54,8 @@ const Login = () => {
             </Link>
           </div>
         </Form>
-      </Formik>
+      </Formik></Fade>
+      
     </div>
   );
 };

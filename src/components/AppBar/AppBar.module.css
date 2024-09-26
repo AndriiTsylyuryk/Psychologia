@@ -1,59 +1,54 @@
-
 .appBar {
-    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозора чорна підкладка */
-    color: #fff; /* Білий текст */
-    
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    /* border-radius: 50px; */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .appBar h3 {
-    margin: 0;
-    font-size: 24px;
-    color: #f0f0f0; /* Світло-сірий текст */
-  }
-  
-  .navList {
-    
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navItem {
-    color: #fff;
-  }
-  
-  .navItem a {
-    text-decoration: none;
-    color: #ccc; /* Світло-сірий текст для посилань */
-    transition: color 0.3s ease;
-  }
-  
-  .navItem a:hover {
-    color: #fff; /* Підсвітка тексту при наведенні */
-  }
-  
-  .logoutButton {
-    background: none;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .logoutButton:hover {
-    background-color: #fff;
-    color: #000;
-  }
-  
-  
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-bottom: 2px solid #444;
+}
+
+.navList {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem a {
+  color: #fff;
+  text-decoration: none;
+  /* padding: 10px 15px; */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navItem a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.navItem a.active {
+  background-color: #000000;
+  color: #fff;
+}
+
+.logoutButton {
+  background-color: #ff5c5c;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #ff4040;
+}
+
+h3 {
+  margin: 0;
+}

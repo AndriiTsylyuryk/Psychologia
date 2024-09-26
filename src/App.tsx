@@ -29,7 +29,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route
             path="calendar"

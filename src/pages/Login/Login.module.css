@@ -6,9 +6,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  /* padding: 20px; */
   position: relative;
 }
 
@@ -22,7 +20,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 80%; */
   margin-top: 148px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -48,6 +45,7 @@
   background-color: #333;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
   font-size: 16px;
 }
 
@@ -59,7 +57,7 @@
 .textBackground {
     background-color: rgba(255, 255, 255, 0.7); 
     padding: 5px;
-    border-radius: 30px; /* Закруглені краї */
+    border-radius: 30px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 2; 
     position: relative; 
