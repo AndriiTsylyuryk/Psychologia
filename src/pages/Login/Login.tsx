@@ -27,35 +27,36 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-     
-      {<AppBar/>}
+      {<AppBar />}
       {/* "<div className={styles.textBackground}>
         <h2 className={styles.title}>Психолог Аліна Смєлянець</h2>
-      </div>" */}<Fade><Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form className={styles.form}>
-          <Field
-            name="email"
-            placeholder="Введіть ваш емейл"
-            className={styles.input}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Введіть ваш пароль"
-            className={styles.input}
-          />
-          <button type="submit" className={styles.button}>
-            Вхід
-          </button>
-          <div className={styles.registration}>
-            <p className={styles.text}>Немає аккаунта?</p>
-            <Link to="/register" className={styles.link}>
-              Тиць
-            </Link>
-          </div>
-        </Form>
-      </Formik></Fade>
-      
+      </div>" */}
+      <Fade delay={2000}>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          <Form className={styles.form}>
+            <Field
+              name="email"
+              placeholder="Введіть ваш емейл"
+              className={styles.input}
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Введіть ваш пароль"
+              className={styles.input}
+            />
+            <button type="submit" className={styles.button}>
+              Вхід
+            </button>
+            <div className={styles.registration}>
+              <p className={styles.text}>Немає аккаунта?</p>
+              <Link to="/register" className={styles.link}>
+                Тиць
+              </Link>
+            </div>
+          </Form>
+        </Formik>
+      </Fade>
     </div>
   );
 };
