@@ -3,49 +3,50 @@ import { Fade } from "react-awesome-reveal";
 import style from "./Home.module.css";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selector";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Home = () => {
-  const isLoggendIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn); // Виправлено назву змінної
+  const carouselTexts = [
+    "Ви супер психолог, допомогли справитись з залежністю",
+    "Гарні циці",
+    "Дупа топ",
+  ];
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+  };
 
   return (
     <div>
-      {!isLoggendIn && (
+      {!isLoggedIn && (
         <>
           <Fade delay={1000}>
             <h1 className={style.header}>
               Привіт, я Аліна Смєлянець, твій Психолог
             </h1>
           </Fade>
-          <Carousel className="w-full max-w-xs">
-            <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
-                        <span className="text-4xl font-semibold">
-                          Куня 
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
+          <div className={style.slidercontainer}>
+            <Slider {...settings}>
+              {carouselTexts.map((text, index) => (
+                <div key={index}>
+                  <h3>{text}</h3>
+                </div>
               ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+            </Slider>
+          </div>
         </>
       )}
-      {isLoggendIn && (
+      {isLoggedIn && (
         <Fade className={style.header} delay={1000}>
           Вітаю на платформі
         </Fade>
