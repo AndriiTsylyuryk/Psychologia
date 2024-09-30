@@ -1,43 +1,11 @@
-/* Заголовок */
 .header {
   font-size: 36px;
   font-weight: bold;
   color: #150e0e;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.5); 
-  border-radius: 10px; 
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
-  display: inline-block; 
-  padding: 20px; /* Або залиште закоментованим, якщо не потрібно */
-}
-
-.slidercontainer {
-  width: 80%;
-  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.slick-slide h3 {
-  color: #fff;
-  background-color: #007bff;
-  padding: 40px 0;
-  font-size: 1.5rem;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.slick-dots li button:before {
-  color: #007bff;
-}
-
-.slick-prev:before, .slick-next:before {
-  color: #007bff;
-}
-
-.slick-dots li.slick-active button:before {
-  opacity: 1;
-  color: #ff5722;
 }

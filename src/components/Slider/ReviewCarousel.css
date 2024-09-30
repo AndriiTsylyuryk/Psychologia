@@ -1,0 +1,25 @@
+/* ReviewCarousel.css */
+
+.review-carousel {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .review-slide {
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-slide p {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+  
+  .review-slide h4 {
+    margin-top: 20px;
+    color: #333;
+  }
+  
