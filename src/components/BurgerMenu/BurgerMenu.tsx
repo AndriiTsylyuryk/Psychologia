@@ -8,13 +8,12 @@ import "./BurgerMenu.css";
 import { logoutThunk } from "@/redux/auth/operations";
 
 const BurgerMenu = () => {
-  const showSettings = (e) => {
-    e.preventDefault;
-  };
-  const user = useSelector(selectUser);
+
   const dispatch = useDispatch();
   const isLoggendIn = useSelector(selectIsLoggedIn);
-
+  const handleStateChange = (state) => {
+    setState({ menuOpen: state.isOpen });
+  };
   return (
     <Menu right width={"100%"} isOpen>
       {!isLoggendIn && <NavLink to="/login">Вхід</NavLink>}
