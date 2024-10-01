@@ -3,14 +3,12 @@
     --header-h: 64px;
     --bg-color: white;
     --color: #1e2023;
-  
+
     background: var(--bg-color);
     color: var(--color);
     height: var(--header-h);
   }
 }
-
-
 
 .headerContainer {
   padding-left: 16px;
@@ -24,12 +22,13 @@
   align-items: center;
 }
 
-.name{
+.name {
   font-weight: bold;
- 
 }
 
-
+.name > span {
+  color: var(--color-primary);
+}
 
 /* .navList {
   list-style-type: none;

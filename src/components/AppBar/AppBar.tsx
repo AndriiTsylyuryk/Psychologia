@@ -13,7 +13,7 @@ const AppBar = () => {
   return (
     <div className={styles.headerContainer}>
 
-      <p className={styles.name}>Aліна Смєлянець</p>
+      <p className={styles.name}>Aліна Смєлянець <span>Psychologist</span></p>
       
       {/* <h3>{user.name}</h3> */}
       {/* <ul className={styles.navList}>
