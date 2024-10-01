@@ -3,15 +3,12 @@ import { Fade } from "react-awesome-reveal";
 import style from "./Home.module.css";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selector";
-import Slider from "react-slick";
+import ReviewSlider from "@/components/Slider/ReviewSlider";
+
 
 const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn); // Виправлено назву змінної
-  const carouselTexts = [
-    "Ви супер психолог, допомогли справитись з залежністю",
-    "Гарні циці",
-    "Дупа топ",
-  ];
+ 
 
   return (
     <div>
@@ -22,7 +19,7 @@ const Home = () => {
               Привіт, я Аліна Смєлянець, твій Психолог
             </h1>
           </Fade>
-          <Slider />
+          <ReviewSlider />
         </>
       )}
       {isLoggedIn && (
