@@ -1,6 +1,6 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position:absolute;
+  position: absolute;
   width: 20px;
   height: 20px;
   right: 25px;
@@ -42,25 +42,38 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: var(--color-secondary);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
   padding: 0.8em;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
 }
 
 /* Individual item */
 .bm-item {
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
 }
 
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+.list {
+  display: flex;
+}
+/* .navLinksList{
+  display: flex;
+  flex-direction: row;
+  color: var(--color-text);
+} */
