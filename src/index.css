@@ -1,12 +1,15 @@
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Onest", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --color-primary: #286099;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.color-primary {
+  color: var(--color-primary);
 }
 @tailwind base;
 @tailwind components;
@@ -16,6 +19,7 @@ body {
   margin: 0;
   background-color: #f0f0f0;
 }
+
 button,
 input,
 textarea {
@@ -94,5 +98,27 @@ img {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+  /* padding: 80px 20px 0 20px; */
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 124px 32px 0 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 164px 32px 0 32px;
   }
 }

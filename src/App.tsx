@@ -15,6 +15,8 @@ import { PrivateRoute } from "./Routes/PrivateRoute";
 import { PublicRoute } from "./Routes/PublicRoute";
 import { selectIsRefreshing } from "./redux/auth/selector";
 import Loader from "./components/Loader/Loader";
+import './index.css' 
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +28,8 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div>
+    <div className="container">
+      <BurgerMenu/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

@@ -14,12 +14,12 @@ const Home = () => {
     <div>
       {!isLoggedIn && (
         <>
-          <Fade delay={1000}>
+          {/* <Fade delay={1000}>
             <h1 className={style.header}>
               Привіт, я Аліна Смєлянець, твій Психолог
             </h1>
-          </Fade>
-          <ReviewSlider />
+          </Fade> */}
+          {/* <ReviewSlider /> */}
         </>
       )}
       {isLoggedIn && (

@@ -1,15 +1,37 @@
 .appBar {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  border-bottom: 2px solid #444;
+  .header {
+    --header-h: 64px;
+    --bg-color: white;
+    --color: #1e2023;
+  
+    background: var(--bg-color);
+    color: var(--color);
+    height: var(--header-h);
+  }
 }
 
-.navList {
+
+
+.headerContainer {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  height: var(--header-h);
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.name{
+  font-weight: bold;
+ 
+}
+
+
+
+/* .navList {
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -51,4 +73,4 @@
 
 h3 {
   margin: 0;
-}
+} */

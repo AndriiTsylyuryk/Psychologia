@@ -4,17 +4,19 @@ import { selectIsLoggedIn, selectUser } from "../../redux/auth/selector";
 import { NavLink } from "react-router-dom";
 import { logoutThunk } from "../../redux/auth/operations";
 import styles from "./AppBar.module.css";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const AppBar = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const isLoggendIn = useSelector(selectIsLoggedIn);
   return (
-    <div className={styles.appBar}>
-      <h3>{user.name}</h3>
-      <ul className={styles.navList}>
+    <div className={styles.headerContainer}>
 
-        
+      <p className={styles.name}>Aліна Смєлянець</p>
+      
+      {/* <h3>{user.name}</h3> */}
+      {/* <ul className={styles.navList}>
         {!isLoggendIn && (
           <li className={styles.navItem}>
             <NavLink to="/login">Вхід</NavLink>
@@ -44,7 +46,7 @@ const AppBar = () => {
             </li>
           </>
         )}
-      </ul>
+      </ul> */}
     </div>
   );
 };

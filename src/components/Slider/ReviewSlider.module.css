@@ -21,11 +21,15 @@
 }
 
 .swiperslide p {
-  /* font-weight: bold; Жирний текст */
+  font-weight: bold;
   margin: 0; /* Забираємо зовнішні відступи */
 }
 
-.swiperButtonNext,
-.swiperButtonPrev {
-  color: black;
+
+
+
+.naming{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }

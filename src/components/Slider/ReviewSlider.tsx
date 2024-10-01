@@ -3,16 +3,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import style from "./ReviewCarouse.module.css";
+import style from "./ReviewSlider.module.css";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { CiFaceSmile } from "react-icons/ci";
 
-
 export default function ReviewSlider() {
   const carouselTexts = [
-    "'Ви супер психолог, допомогли справитись з залежністю'",
-    "'Гарні циці'",
-    "'Дупа топ'",
+    {
+      text: "'Ви супер, допомогли справитись з залежністю'",
+      name: "Анна",
+    },
+    { text: "'Гарні циці'", name: "Микола" },
+    { text: "'Дупа топ'", name: "Андрій" },
   ];
 
   return (
@@ -30,9 +32,12 @@ export default function ReviewSlider() {
         {carouselTexts.map((item) => {
           return (
             <SwiperSlide className={style.swiperslide}>
-              <CiFaceSmile />
+              <div className={style.naming}>
+                
+                <span>{item.name}</span>
+              </div>
 
-              <p>{item}</p>
+              <p>{item.text}</p>
             </SwiperSlide>
           );
         })}
