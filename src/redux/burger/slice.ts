@@ -1,13 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  isOpen: false,
+};
 
-const initialState={
-    isOpen
-}
-
-
-slice = createSlice({
+const slice = createSlice({
   name: "burger",
   initialState,
-
+  reducers: {
+    toggleBurgerMenu(state) {
+      state.isOpen ? state.isOpen = false : state.isOpen;
+    },
+  },
 });
+
+export const toggleBurgerMenu = slice.actions;
+export const closeBurgerMenu = slice.actions;
+
+export const burgerReducer = slice.reducer;
