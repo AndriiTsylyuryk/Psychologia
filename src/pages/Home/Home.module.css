@@ -1,11 +1,39 @@
-.header {
-  font-size: 36px;
+.home {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.h1 {
+  font-size: 48px;
   font-weight: bold;
-  color: #150e0e;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  display: inline-block;
-  padding: 20px;
+}
+
+.h1 span {
+  color: var(--color-primary);
+  font-size: 32px;
+}
+
+.heroImg {
+  background-image: url(../../img/DSC05500.jpg);
+  width: inherit;
+  height: 232px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 32px;
+  z-index: 1;
+  background-position: center;
+}
+
+.icon {
+  color: var(--color-text);
+}
+
+
+.media{
+  display: flex;
+  gap: 36px;
 }

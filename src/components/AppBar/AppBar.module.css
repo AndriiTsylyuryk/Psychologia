@@ -11,9 +11,7 @@
 }
 
 .headerContainer {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 16px;
+  padding:16px;
   margin-left: auto;
   margin-right: auto;
   height: var(--header-h);
