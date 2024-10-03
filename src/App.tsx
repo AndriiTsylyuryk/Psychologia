@@ -18,7 +18,7 @@ import Loader from "./components/Loader/Loader";
 import './index.css' 
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import AppBar from "./components/AppBar/AppBar";
-import { AppDispatch } from '@/redux/store';
+import { AppDispatch } from './redux/store';
 
 
 function App() {
