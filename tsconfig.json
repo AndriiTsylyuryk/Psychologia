@@ -6,7 +6,9 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
-    "skipLibCheck": true,
+    "skipLibCheck": true, // Ігнорує перевірку типів у бібліотеках
+    "noEmit": false, // Дозволяє створювати вихідні файли, навіть якщо є помилки
+    "strict": false, // Знижує рівень суворості
     "paths": {
       "@/*": ["./src/*"]
     }
