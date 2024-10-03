@@ -9,12 +9,11 @@ const slice = createSlice({
   initialState,
   reducers: {
     toggleBurgerMenu(state) {
-      state.isOpen ? state.isOpen = false : state.isOpen;
+      state.isOpen = !state.isOpen; // Просто перемикаємо стан
     },
   },
 });
 
-export const toggleBurgerMenu = slice.actions;
-export const closeBurgerMenu = slice.actions;
+export const { toggleBurgerMenu } = slice.actions;
 
 export const burgerReducer = slice.reducer;

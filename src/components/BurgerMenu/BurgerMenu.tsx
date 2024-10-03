@@ -11,18 +11,37 @@ import { toggleBurgerMenu } from "@/redux/burger/slice";
 
 const BurgerMenu = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
+
   const isOpen = useSelector(selectIsOpenBurger);
+
   const dispatch = useDispatch();
 
+  const handleCloseMenu = () => {
+    dispatch(toggleBurgerMenu());
+  };
+
+  const handleOnOpen = () =>{
+    dispatch(toggleBurgerMenu())
+  }
+  const handleOnClose = () =>{
+    dispatch(toggleBurgerMenu())
+  }
+
   return (
-    <Menu isOpen={isOpen} right width={"100%"}>
+    <Menu
+      isOpen={isOpen}
+      onOpen={handleOnOpen}
+      onClose={handleOnClose}
+      right
+      width={"100%"}
+    >
       {!isLoggendIn && (
-        <NavLink to="/login" onClick={() => dispatch(toggleBurgerMenu())}>
+        <NavLink to="/login" onClick={() => handleCloseMenu()}>
           Вхід
         </NavLink>
       )}
       {!isLoggendIn && (
-        <NavLink to="/register" onClick={() => dispatch(toggleBurgerMenu())}>
+        <NavLink to="/register" onClick={() => handleCloseMenu()}>
           Реєстрація
         </NavLink>
       )}
