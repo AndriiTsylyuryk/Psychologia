@@ -17,12 +17,12 @@ const BurgerMenu = () => {
   return (
     <Menu isOpen={isOpen} right width={"100%"}>
       {!isLoggendIn && (
-        <NavLink to="/login" onClick={() => dispatch(toggleBurgerMenu)}>
+        <NavLink to="/login" onClick={() => dispatch(toggleBurgerMenu())}>
           Вхід
         </NavLink>
       )}
       {!isLoggendIn && (
-        <NavLink to="/register" onClick={() => dispatch(toggleBurgerMenu)}>
+        <NavLink to="/register" onClick={() => dispatch(toggleBurgerMenu())}>
           Реєстрація
         </NavLink>
       )}
