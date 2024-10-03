@@ -18,9 +18,11 @@ import Loader from "./components/Loader/Loader";
 import './index.css' 
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import AppBar from "./components/AppBar/AppBar";
+import { AppDispatch } from '@/redux/store';
+
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch:AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeThunk());
   }, [dispatch]);
