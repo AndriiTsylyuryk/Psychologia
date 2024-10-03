@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-     "build": "tsc --skipLibCheck --noEmit && next build"
+    "build": "tsc --skipLibCheck --noEmit && next build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -36,7 +36,9 @@
     "styled-components": "^6.1.13",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "yup": "^1.4.0",
+    "yup-password": "^0.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

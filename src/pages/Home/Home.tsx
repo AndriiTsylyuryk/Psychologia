@@ -6,6 +6,7 @@ import { selectIsLoggedIn } from "../../redux/auth/selector";
 import ReviewSlider from "@/components/Slider/ReviewSlider";
 import { LiaInstagram } from "react-icons/lia";
 import { FaWhatsapp } from "react-icons/fa";
+import { Navigate, NavLink } from "react-router-dom";
 const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -26,11 +27,11 @@ const Home = () => {
           </div>
         </>
       )}
-      {isLoggedIn && (
+      {/* {isLoggedIn && (
         <Fade className={style.header} delay={1000}>
           Вітаю на платформі
         </Fade>
-      )}
+      )} */}
     </div>
   );
 };

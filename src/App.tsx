@@ -17,6 +17,7 @@ import { selectIsRefreshing } from "./redux/auth/selector";
 import Loader from "./components/Loader/Loader";
 import './index.css' 
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import AppBar from "./components/AppBar/AppBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
   ) : (
     <div className="container">
       <BurgerMenu/>
+      <AppBar/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

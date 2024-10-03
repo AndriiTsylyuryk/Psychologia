@@ -6,7 +6,7 @@ import style from './Layout.module.css'
 const Layout = () => {
   return (
     <div>
-      <AppBar />
+      {/* <AppBar /> */}
       <Outlet />
     </div>
   );
