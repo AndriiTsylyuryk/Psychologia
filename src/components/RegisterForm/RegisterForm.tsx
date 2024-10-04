@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { registerThunk } from '@/redux/auth/operations';
 import { Link } from 'react-router-dom';
 import * as Yup from "yup";
+import { AppDispatch } from '@/redux/store';
 const RegisterForm = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const schema = Yup.object({
       name: Yup.string()
         .required("Це поле необхідне!")
