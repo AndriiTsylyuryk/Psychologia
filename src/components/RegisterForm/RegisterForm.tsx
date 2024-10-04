@@ -30,6 +30,7 @@ const RegisterForm = () => {
     options.resetForm();
     dispatch(registerThunk(values));
   };
+
   return (
     <div>
       <Formik
@@ -63,7 +64,7 @@ const RegisterForm = () => {
             className={styles.error}
           />
           <button className={styles.button} type="submit">
-            Вхід
+            Зареєструватися
           </button>
           <div className={styles.register}>
             <p className={styles.text}>Вже маєш аккаунт?</p>

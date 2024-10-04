@@ -12,8 +12,7 @@ const AppBar = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
   return (
     <div className={styles.headerContainer}>
-
-      <p className={styles.name}>Aліна Смєлянець <span>Psychologist</span></p>
+      <NavLink to='/'><p className={styles.name}>Aліна Смєлянець <span>Psychologist</span></p></NavLink>
       
       {/* <h3>{user.name}</h3> */}
       {/* <ul className={styles.navList}>
