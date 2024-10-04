@@ -2,9 +2,17 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { clearToken, myAPI, setToken } from "../../config/API";
 
+interface RegisterCredentials {
+  name: string
+  email: string;
+  password: string;
+}
+
+
+
 export const registerThunk = createAsyncThunk(
   "register",
-  async (credentials, thunkAPI) => {
+  async (credentials: RegisterCredentials, thunkAPI) => {
     try {
       const { data } = await myAPI.post("users/signup", credentials);
       setToken(data.token);
