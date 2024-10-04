@@ -22,10 +22,10 @@ import { AppDispatch } from './redux/store';
 
 
 function App() {
-  const dispatch:AppDispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMeThunk());
-  }, [dispatch]);
+  // const dispatch:AppDispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMeThunk());
+  // }, [dispatch]);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   return isRefreshing ? (
