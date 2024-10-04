@@ -8,6 +8,7 @@ import "./BurgerMenu.css";
 import { logoutThunk } from "@/redux/auth/operations";
 import { selectIsOpenBurger } from "@/redux/burger/selectors";
 import { toggleBurgerMenu } from "@/redux/burger/slice";
+import NightButton from "../NightButton/NightButton";
 
 const BurgerMenu = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
@@ -20,12 +21,12 @@ const BurgerMenu = () => {
     dispatch(toggleBurgerMenu());
   };
 
-  const handleOnOpen = () =>{
-    dispatch(toggleBurgerMenu())
-  }
-  const handleOnClose = () =>{
-    dispatch(toggleBurgerMenu())
-  }
+  const handleOnOpen = () => {
+    dispatch(toggleBurgerMenu());
+  };
+  const handleOnClose = () => {
+    dispatch(toggleBurgerMenu());
+  };
 
   return (
     <Menu
@@ -47,13 +48,20 @@ const BurgerMenu = () => {
       )}
       {isLoggendIn && (
         <>
-          <NavLink to="/about">Про мене</NavLink>
+          <NavLink to="/about" onClick={() => handleCloseMenu()}>
+            Про мене
+          </NavLink>
 
-          <NavLink to="/calendar">Календар</NavLink>
+          <NavLink to="/calendar" onClick={() => handleCloseMenu()}>
+            Календар
+          </NavLink>
 
-          <button onClick={() => dispatch(logoutThunk())}>Вихід</button>
+          <button onClick={() => dispatch(logoutThunk()) && handleCloseMenu()}>
+            Вихід
+          </button>
         </>
       )}
+      <NightButton/>
     </Menu>
   );
 };
