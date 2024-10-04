@@ -6,10 +6,8 @@ const Loader = () => {
   return (
     <div className={style.loader}>
       <InfinitySpin
-       
         width="200"
         color="#333"
-        
       />
     </div>
   );

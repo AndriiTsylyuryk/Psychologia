@@ -7,11 +7,12 @@ import { Link, Navigate } from "react-router-dom";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import style from "./LoginForm.module.css";
+import { AppDispatch } from "@/redux/store";
 YupPassword(Yup);
 
 const LoginForm = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const schema = Yup.object({
     email: Yup.string()
