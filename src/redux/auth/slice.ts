@@ -7,7 +7,7 @@ import {
 } from "./operations";
 import { AuthState } from "../authTypes/authTypes";
 
-const initialState:AuthState = {
+const initialState: AuthState = {
   user: {
     name: "",
     email: "",
@@ -33,18 +33,21 @@ const slice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
+        // Перевірте, чи action.payload має потрібні властивості
+        if (action.payload) {
+          state.isLoggedIn = true;
+          state.isRefreshing = false;
+          state.user.name = action.payload.name;
+          state.user.email = action.payload.email;
+        }
       })
-      .addCase(logoutThunk.fulfilled, (state, action) => {
+      .addCase(logoutThunk.fulfilled, (state) => {
         return initialState;
       })
-      .addCase(getMeThunk.pending, (state, action) => {
+      .addCase(getMeThunk.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(getMeThunk.rejected, (state, action) => {
+      .addCase(getMeThunk.rejected, (state) => {
         state.isRefreshing = false;
       });
   },
