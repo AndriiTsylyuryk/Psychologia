@@ -38,6 +38,7 @@
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "web-animation-club": "^1.0.0",
     "yup": "^1.4.0",
     "yup-password": "^0.4.0"
   },
