@@ -13,6 +13,7 @@
     "@emotion/react": "^11.13.3",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@rcaferati/wac": "^1.0.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.7.7",
