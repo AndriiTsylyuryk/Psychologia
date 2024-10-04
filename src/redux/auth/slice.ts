@@ -5,13 +5,14 @@ import {
   logoutThunk,
   registerThunk,
 } from "./operations";
+import { AuthState } from "../authTypes/authTypes";
 
-const initialState = {
+const initialState:AuthState = {
   user: {
     name: "",
     email: "",
   },
-  token: "",
+  token: null,
   isLoggedIn: false,
   isRefreshing: false,
 };

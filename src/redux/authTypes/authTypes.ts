@@ -1,4 +1,13 @@
-export interface AuthState {
-    token: string | null; // або string, якщо token завжди має значення
-    // Додаткові поля стану аутентифікації
+// authTypes.ts
+export interface User {
+    name: string;
+    email: string;
   }
+  
+  export interface AuthState {
+    user: User;
+    token: string | null;
+    isLoggedIn: boolean;
+    isRefreshing: boolean;
+  }
+  
