@@ -15,9 +15,14 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
 export const loginThunk = createAsyncThunk(
   "login",
-  async (credentials, thunkAPI) => {
+  async (credentials: LoginCredentials, thunkAPI) => {
     try {
       const { data } = await myAPI.post("users/login", credentials);
       setToken(data.token);
