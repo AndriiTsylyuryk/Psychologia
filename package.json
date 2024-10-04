@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build": "tsc --outDir public"
+    "build": "vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
