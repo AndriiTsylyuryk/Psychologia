@@ -9,7 +9,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     toggleBurgerMenu(state) {
-      state.isOpen = !state.isOpen; // Просто перемикаємо стан
+      state.isOpen = !state.isOpen; 
     },
   },
 });
