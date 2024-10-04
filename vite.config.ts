@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
-    
   },
   resolve: {
     alias: {
