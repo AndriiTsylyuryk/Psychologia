@@ -13,6 +13,7 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
+import { AuthState } from "./authTypes/authTypes";
 
 const persistConfig = {
   key: "root",
@@ -36,7 +37,9 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = {
+  auth: AuthState;  // використовуємо тип AuthState
+};
 export type AppDispatch = typeof store.dispatch;
 
 export interface UserType {
