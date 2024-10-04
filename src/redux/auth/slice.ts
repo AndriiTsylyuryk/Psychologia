@@ -20,6 +20,7 @@ const initialState: AuthState = {
 const slice = createSlice({
   name: "auth",
   initialState,
+  reducers: {}, 
   extraReducers: (builder) => {
     builder
       .addCase(registerThunk.fulfilled, (state, action) => {
