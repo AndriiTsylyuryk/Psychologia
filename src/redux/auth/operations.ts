@@ -1,14 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { clearToken, myAPI, setToken } from "../../config/API";
+import { RootState, UserType } from "../store";
 
 interface RegisterCredentials {
-  name: string
+  name: string;
   email: string;
   password: string;
 }
-
-
 
 export const registerThunk = createAsyncThunk(
   "register",
@@ -50,7 +49,11 @@ export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
   }
 });
 
-export const getMeThunk = createAsyncThunk("getMe", async (_, thunkAPI) => {
+export const getMeThunk = createAsyncThunk<
+  UserType,
+  void,
+  { state: RootState }
+>("getMe", async (_, thunkAPI) => {
   const savedToken = thunkAPI.getState().auth.token;
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("no token");

@@ -51,7 +51,7 @@ const BurgerMenu = () => {
 
           <NavLink to="/calendar">Календар</NavLink>
 
-          {/* <button onClick={() => dispatch(logoutThunk())}>Вихід</button> */}
+          <button onClick={() => dispatch(logoutThunk())}>Вихід</button>
         </>
       )}
     </Menu>

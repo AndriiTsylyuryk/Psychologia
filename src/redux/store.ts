@@ -38,3 +38,9 @@ export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export interface UserType {
+  id: string;        // або number, якщо ID - числовий
+  name: string;      // ім'я користувача
+  email: string;     // електронна пошта
+}
