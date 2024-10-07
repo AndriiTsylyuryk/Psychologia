@@ -29,6 +29,7 @@ const BurgerMenu = () => {
   };
 
   return (
+    
     <Menu
       isOpen={isOpen}
       onOpen={handleOnOpen}
@@ -61,7 +62,7 @@ const BurgerMenu = () => {
           </button>
         </>
       )}
-      <NightButton/>
+      <NightButton />
     </Menu>
   );
 };

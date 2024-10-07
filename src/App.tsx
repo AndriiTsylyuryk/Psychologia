@@ -15,29 +15,38 @@ import { PrivateRoute } from "./Routes/PrivateRoute";
 import { PublicRoute } from "./Routes/PublicRoute";
 import { selectIsRefreshing } from "./redux/auth/selector";
 import Loader from "./components/Loader/Loader";
-import './index.css' 
+import "./index.css";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import AppBar from "./components/AppBar/AppBar";
-import { AppDispatch } from './redux/store';
-
+import { AppDispatch } from "./redux/store";
+import { selectIsLight } from "./redux/burger/selectors";
 
 function App() {
-  const dispatch:AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeThunk());
   }, [dispatch]);
   const isRefreshing = useSelector(selectIsRefreshing);
 
+  const isLight = useSelector(selectIsLight);
+
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div className="container" data-theme='dark'>
-      <BurgerMenu/>
-      <AppBar/>
+    <div className="container" data-theme={isLight ? "dark" : "light"}>
+      <BurgerMenu />
+      <AppBar />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<PrivateRoute><About /></PrivateRoute>} />
+          <Route
+            path="about"
+            element={
+              <PrivateRoute>
+                <About />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="calendar"
             element={

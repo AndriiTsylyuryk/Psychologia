@@ -7,6 +7,10 @@
     border-radius: 10px;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
   }
+
+  [data-theme="dark"] .form {
+    background-color: var(--color-primary);
+  }
   
   .input {
     width: 100%;
@@ -17,6 +21,10 @@
     border: 1px solid #ccc;
     font-size: 14px;
     
+  }
+
+  [data-theme="dark"] .input{
+    background-color: var(--color-dark-bg);
   }
   
   .button {

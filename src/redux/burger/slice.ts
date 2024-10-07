@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
+  isLight: true,
 };
 
 const slice = createSlice({
@@ -9,11 +10,15 @@ const slice = createSlice({
   initialState,
   reducers: {
     toggleBurgerMenu(state) {
-      state.isOpen = !state.isOpen; 
+      state.isOpen = !state.isOpen;
+    },
+    toggleTheme(state) {
+      state.isLight = !state.isLight;
     },
   },
 });
 
-export const { toggleBurgerMenu } = slice.actions;
+export const { toggleBurgerMenu, toggleTheme } = slice.actions;
 
 export const burgerReducer = slice.reducer;
+export const themeReducer = slice.reducer;

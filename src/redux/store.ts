@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authReducer } from "./auth/slice";
-import { burgerReducer } from "./burger/slice";
+import { burgerReducer, themeReducer } from "./burger/slice";
 import {
   persistStore,
   persistReducer,
@@ -26,6 +26,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     burger: burgerReducer,
+    theme: themeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -38,12 +39,12 @@ export const store = configureStore({
 export const persistor = persistStore(store);
 
 export type RootState = {
-  auth: AuthState;  // використовуємо тип AuthState
+  auth: AuthState; // використовуємо тип AuthState
 };
 export type AppDispatch = typeof store.dispatch;
 
 export interface UserType {
-  id: string;        // або number, якщо ID - числовий
-  name: string;      // ім'я користувача
-  email: string;     // електронна пошта
+  id: string; // або number, якщо ID - числовий
+  name: string; // ім'я користувача
+  email: string; // електронна пошта
 }
