@@ -31,7 +31,7 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div className="container">
+    <div className="container" data-theme='dark'>
       <BurgerMenu/>
       <AppBar/>
       <Routes>

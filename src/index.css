@@ -16,7 +16,8 @@
   color: var(--color-primary);
 }
 
-.darkMode {
+
+[data-theme='dark'] {
   background-color: var(--color-dark-bg);
   color: var(--color-dark-text);
 }
@@ -116,6 +117,7 @@ img {
   max-width: 375px;
   margin: 0 auto;
   /* padding: 80px 20px 0 20px; */
+ 
 }
 
 @media screen and (min-width: 768px) {
@@ -123,7 +125,7 @@ img {
     max-width: 768px;
     margin: 0 auto;
     padding: 124px 32px 0 32px;
-   outline: #121212;
+   
   }
 }
 

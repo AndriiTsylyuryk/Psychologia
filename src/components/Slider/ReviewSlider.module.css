@@ -12,12 +12,11 @@
   align-items: center;
   /* height: 100%; Залежить від розміру контейнера Swiper */
   font-size: 14px; /* Розмір шрифту */
-  color: #000000; /* Колір тексту */
-  background-color: #ffffff; /* Фоновий колір слайда */
+  /* color: #000000;  */
+  /* background-color: #ffffff;  */
   padding: 20px;
   text-align: center; /* Вирівнювання тексту */
   border-radius: 10px; /* Закруглені кути */
-  
 }
 
 .swiperslide p {
