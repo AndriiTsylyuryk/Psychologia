@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
-  isLight: true,
+  isDark: false,
 };
 
 const slice = createSlice({
@@ -13,7 +13,7 @@ const slice = createSlice({
       state.isOpen = !state.isOpen;
     },
     toggleTheme(state) {
-      state.isLight = !state.isLight;
+      state.isDark = !state.isDark;
     },
   },
 });

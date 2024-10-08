@@ -28,12 +28,12 @@ function App() {
   }, [dispatch]);
   const isRefreshing = useSelector(selectIsRefreshing);
 
-  const isLight = useSelector(selectIsLight);
+  const isDark = useSelector(selectIsLight);
 
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div className="container" data-theme={isLight ? "dark" : "light"}>
+    <div className="container" data-theme={isDark ? "dark" : "light"}>
       <BurgerMenu />
       <AppBar />
       <Routes>

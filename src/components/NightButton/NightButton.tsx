@@ -5,7 +5,7 @@ import DarkModeToggle from "react-dark-mode-toggle";
 import { useDispatch, useSelector } from "react-redux";
 
 const NightButton = () => {
-  const isLight = useSelector(selectIsLight);
+  const isDark = useSelector(selectIsLight);
 
   const dispatch = useDispatch();
 
@@ -17,8 +17,8 @@ const NightButton = () => {
     <div>
       <DarkModeToggle
         size={50}
-        onChange={handleToggleTheme}
-        checked={isLight}
+        onChange={() => handleToggleTheme()}
+        checked={isDark}
       />
     </div>
   );
