@@ -17,14 +17,15 @@ const RegisterForm = () => {
     email: Yup.string()
       .email("Має бути валідний емейл!")
       .required("Це поле необхідне!"),
-    password: Yup.string().password()
-    .minLowercase(0)
-    .min(0)
-    .minWords(0)
-    .minUppercase(0)
-    .minSymbols(0)
-    .minNumbers(0)
-    .required("Це поле необхідне!"),
+    password: Yup.string()
+      .password()
+      .minLowercase(0)
+      .min(0)
+      .minWords(0)
+      .minUppercase(0)
+      .minSymbols(0)
+      .minNumbers(0)
+      .required("Це поле необхідне!"),
   });
 
   const initialValues = {

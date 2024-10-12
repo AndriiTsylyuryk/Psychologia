@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const myAPI = axios.create({
-  baseURL: "https://connections-api.goit.global/",
+  baseURL: "https://psychologia-back-end.onrender.com/",
 });
 
 export const setToken = (token) => {
