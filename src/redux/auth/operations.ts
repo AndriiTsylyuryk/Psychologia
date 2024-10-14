@@ -31,7 +31,7 @@ export const loginThunk = createAsyncThunk(
   "login",
   async (credentials: LoginCredentials, thunkAPI) => {
     try {
-      const { data } = await myAPI.post("users/login", credentials);
+      const { data } = await myAPI.post("auth/login", credentials);
       setToken(data.token);
       return data;
     } catch (error) {
@@ -42,7 +42,7 @@ export const loginThunk = createAsyncThunk(
 
 export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
   try {
-    await myAPI.post("users/logout");
+    await myAPI.post("auth/logout");
     clearToken();
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -58,10 +58,9 @@ export const getMeThunk = createAsyncThunk<
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("no token");
   }
-  console.log(thunkAPI.getState());
   try {
     setToken(savedToken);
-    const { data } = await myAPI.get("users/current");
+    const { data } = await myAPI.get("/");
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error);

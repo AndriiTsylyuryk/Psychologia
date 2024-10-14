@@ -34,7 +34,6 @@ const slice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
-        // Перевірте, чи action.payload має потрібні властивості
         if (action.payload) {
           state.isLoggedIn = true;
           state.isRefreshing = false;
