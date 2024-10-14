@@ -17,7 +17,7 @@ export const registerThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.response.data.error);
     }
   }
 );
@@ -32,8 +32,8 @@ export const loginThunk = createAsyncThunk(
   async (credentials: LoginCredentials, thunkAPI) => {
     try {
       const { data } = await myAPI.post("auth/login", credentials);
-      setToken(data.token);
-      return data;
+      setToken(data.data.accessToken);
+      return (data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -54,7 +54,7 @@ export const getMeThunk = createAsyncThunk<
   void,
   { state: RootState }
 >("getMe", async (_, thunkAPI) => {
-  const savedToken = thunkAPI.getState().auth.token;
+  const savedToken = thunkAPI.getState().auth.accessToken;
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("no token");
   }

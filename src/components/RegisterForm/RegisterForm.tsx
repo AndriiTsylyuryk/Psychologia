@@ -1,13 +1,19 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./RegisterForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "@/redux/auth/operations";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { AppDispatch } from "@/redux/store";
+import { selectIsError } from "@/redux/auth/selector";
+import toast, { Toaster } from 'react-hot-toast';
 const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
+
+  const error = useSelector(selectIsError);
+
+  
   const schema = Yup.object({
     name: Yup.string()
       .required("Це поле необхідне!")
@@ -39,8 +45,12 @@ const RegisterForm = () => {
     dispatch(registerThunk(values));
   };
 
+  const notify = () => toast('Here is your toast.');
+
   return (
     <div>
+      <div><Toaster/></div>
+      {error && notify}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

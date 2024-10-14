@@ -19,7 +19,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["token"],
+  whitelist: ["accessToken"],
 };
 
 export const store = configureStore({
@@ -39,12 +39,12 @@ export const store = configureStore({
 export const persistor = persistStore(store);
 
 export type RootState = {
-  auth: AuthState; // використовуємо тип AuthState
+  auth: AuthState; 
 };
 export type AppDispatch = typeof store.dispatch;
 
 export interface UserType {
-  id: string; // або number, якщо ID - числовий
-  name: string; // ім'я користувача
-  email: string; // електронна пошта
+  id: string;
+  name: string; 
+  email: string; 
 }

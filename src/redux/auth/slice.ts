@@ -12,25 +12,28 @@ const initialState: AuthState = {
     name: "",
     email: "",
   },
-  token: null,
+  accessToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: '',
 };
 
 const slice = createSlice({
   name: "auth",
   initialState,
-  reducers: {}, 
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(registerThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
+      }) .addCase(registerThunk.rejected, (state, action) => {
+        state.error = action.payload;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
