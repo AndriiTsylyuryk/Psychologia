@@ -15,7 +15,7 @@ const initialState: AuthState = {
   accessToken: null,
   isLoggedIn: false,
   isRefreshing: false,
-  error: '',
+  error: "",
 };
 
 const slice = createSlice({
@@ -28,7 +28,11 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
-      }) .addCase(registerThunk.rejected, (state, action) => {
+        state.error = "";
+      }).addCase(registerThunk.pending, (state, action) => {
+        state.error = "";
+      })
+      .addCase(registerThunk.rejected, (state, action) => {
         state.error = action.payload;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {

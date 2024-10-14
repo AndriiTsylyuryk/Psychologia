@@ -7,13 +7,12 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { AppDispatch } from "@/redux/store";
 import { selectIsError } from "@/redux/auth/selector";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const error = useSelector(selectIsError);
 
-  
   const schema = Yup.object({
     name: Yup.string()
       .required("Це поле необхідне!")
@@ -45,12 +44,12 @@ const RegisterForm = () => {
     dispatch(registerThunk(values));
   };
 
-  const notify = () => toast('Here is your toast.');
+  const notify = () => toast.error(error);
 
   return (
     <div>
-      <div><Toaster/></div>
-      {error && notify}
+      {/* <div><Toaster/></div> */}
+      {error && notify()}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
