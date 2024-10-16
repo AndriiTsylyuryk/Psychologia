@@ -43,6 +43,16 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(loginThunk.pending, (state, action) => {
+        state.error = "";
+        state.isRefreshing = true;
+      })
+      .addCase(loginThunk.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isRefreshing = false;
+        // state.error = "";
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {

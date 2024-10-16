@@ -11,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const error1 = () => {
+  const errorFromDB = () => {
     if (useSelector(selectIsError) === "Email in use")
       return "Цей емейл вже використовується";
   };
@@ -42,7 +42,7 @@ const RegisterForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, resetForm ) => {
     dispatch(registerThunk(values))
       .unwrap()
       .then(() => {
@@ -50,7 +50,7 @@ const RegisterForm = () => {
         resetForm();
       })
       .catch((error) => {
-        toast.error(error1);
+        toast.error(errorFromDB);
       });
   };
 

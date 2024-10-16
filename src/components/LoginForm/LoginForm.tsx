@@ -1,5 +1,5 @@
 import { loginThunk } from "@/redux/auth/operations";
-import { selectIsLoggedIn } from "@/redux/auth/selector";
+import { selectIsError, selectIsLoggedIn } from "@/redux/auth/selector";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +9,21 @@ import YupPassword from "yup-password";
 import style from "./LoginForm.module.css";
 import { AppDispatch } from "@/redux/store";
 YupPassword(Yup);
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
+
+  const error = useSelector(selectIsError);
+
+  const errorFromDB = () => {
+    if (error === "User not found") {
+      return "Юзера не знайдено";
+    } else if (error === "Wrong password") {
+      return "Невірний пароль";
+    }
+  };
+
   const dispatch = useDispatch<AppDispatch>();
 
   const schema = Yup.object({
@@ -33,9 +45,20 @@ const LoginForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, options) => {
-    options.resetForm();
-    dispatch(loginThunk(values));
+  const handleSubmit = (values, resetForm) => {
+    dispatch(loginThunk(values))
+      .unwrap()
+      .then(() => {
+        toast.success("Логін успішно!");
+        resetForm();
+      })
+      .catch((error) => {
+        if (error === "Wrong password") {
+          toast.error("Невірний пароль");
+        } else if (error === "User not found") {
+          toast.error("Юзера не знайдено");
+        }
+      });
   };
 
   if (isLoggendIn) {
@@ -44,6 +67,9 @@ const LoginForm = () => {
 
   return (
     <div>
+      <div>
+        <Toaster />
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
