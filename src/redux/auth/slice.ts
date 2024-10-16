@@ -28,12 +28,16 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
         state.error = "";
-      }).addCase(registerThunk.pending, (state, action) => {
+      })
+      .addCase(registerThunk.pending, (state, action) => {
         state.error = "";
+        state.isRefreshing = true;
       })
       .addCase(registerThunk.rejected, (state, action) => {
         state.error = action.payload;
+        state.isRefreshing = false;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;

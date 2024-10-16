@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./RegisterForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "@/redux/auth/operations";
@@ -11,7 +11,10 @@ import toast, { Toaster } from "react-hot-toast";
 const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const error = useSelector(selectIsError);
+  const error1 = () => {
+    if (useSelector(selectIsError) === "Email in use")
+      return "Цей емейл вже використовується";
+  };
 
   const schema = Yup.object({
     name: Yup.string()
@@ -39,17 +42,24 @@ const RegisterForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, options) => {
-    options.resetForm();
-    dispatch(registerThunk(values));
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(registerThunk(values))
+      .unwrap()
+      .then(() => {
+        toast.success("Реєстрація успішна!");
+        resetForm();
+      })
+      .catch((error) => {
+        toast.error(error1);
+      });
   };
-
-  const notify = () => toast.error(error);
 
   return (
     <div>
-      {/* <div><Toaster/></div> */}
-      {error && notify()}
+      <div>
+        <Toaster />
+      </div>
+      {/* {error && toast.error(error)} */}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
