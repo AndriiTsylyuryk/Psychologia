@@ -1,7 +1,6 @@
 .swiper {
   width: 250px;
   height: 150px;
-  
 }
 
 /* ReviewCarouse.module.css */
@@ -24,10 +23,7 @@
   margin: 0; /* Забираємо зовнішні відступи */
 }
 
-
-
-
-.naming{
+.naming {
   display: flex;
   align-items: baseline;
   justify-content: center;

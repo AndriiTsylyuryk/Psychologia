@@ -52,7 +52,7 @@ const slice = createSlice({
       .addCase(loginThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isRefreshing = false;
-        // state.error = "";
+        state.error = "";
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {
@@ -62,14 +62,17 @@ const slice = createSlice({
           state.user.email = action.payload.email;
         }
       })
-      .addCase(logoutThunk.fulfilled, (state) => {
-        return initialState;
-      })
       .addCase(getMeThunk.pending, (state) => {
         state.isRefreshing = true;
       })
       .addCase(getMeThunk.rejected, (state) => {
         state.isRefreshing = false;
+      })
+      .addCase(logoutThunk.fulfilled, (state) => {
+        return initialState;
+      })
+      .addCase(logoutThunk.pending, (state) => {
+        state.isRefreshing = true;
       });
   },
 });

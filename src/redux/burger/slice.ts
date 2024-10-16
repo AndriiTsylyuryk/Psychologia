@@ -15,10 +15,13 @@ const slice = createSlice({
     toggleTheme(state) {
       state.isDark = !state.isDark;
     },
+    setTheme(state, action) {
+      state.isDark = action.payload;
+    },
   },
 });
 
-export const { toggleBurgerMenu, toggleTheme } = slice.actions;
+export const { toggleBurgerMenu, toggleTheme, setTheme } = slice.actions;
 
 export const burgerReducer = slice.reducer;
 export const themeReducer = slice.reducer;

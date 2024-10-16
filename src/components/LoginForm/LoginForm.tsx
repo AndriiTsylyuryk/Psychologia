@@ -13,17 +13,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
-
-  const error = useSelector(selectIsError);
-
-  const errorFromDB = () => {
-    if (error === "User not found") {
-      return "Юзера не знайдено";
-    } else if (error === "Wrong password") {
-      return "Невірний пароль";
-    }
-  };
-
   const dispatch = useDispatch<AppDispatch>();
 
   const schema = Yup.object({
@@ -45,11 +34,12 @@ const LoginForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, resetForm) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(loginThunk(values))
       .unwrap()
       .then(() => {
-        toast.success("Логін успішно!");
+        toast.error("Логін успішно!");
+        console.log("Логін успішно");
         resetForm();
       })
       .catch((error) => {
@@ -65,6 +55,9 @@ const LoginForm = () => {
     return <Navigate to="/" />;
   }
 
+
+
+  
   return (
     <div>
       <div>
@@ -74,6 +67,7 @@ const LoginForm = () => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
+        
       >
         {({ handleSubmit }) => (
           <Form className={style.form} onSubmit={handleSubmit}>

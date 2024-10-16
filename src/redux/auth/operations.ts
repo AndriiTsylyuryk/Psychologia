@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { clearToken, myAPI, setToken } from "../../config/API";
 import { RootState, UserType } from "../store";
+import { setTheme } from "../burger/slice";
 
 interface RegisterCredentials {
   name: string;
@@ -33,7 +34,7 @@ export const loginThunk = createAsyncThunk(
     try {
       const { data } = await myAPI.post("auth/login", credentials);
       setToken(data.token);
-      return (data);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.error);
     }
@@ -55,11 +56,13 @@ export const getMeThunk = createAsyncThunk<
   { state: RootState }
 >("getMe", async (_, thunkAPI) => {
   const savedToken = thunkAPI.getState().auth.accessToken;
+  const savedTheme = thunkAPI.getState().theme.isDark;
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("no token");
   }
   try {
     setToken(savedToken);
+    thunkAPI.dispatch(setTheme(savedTheme));
     const { data } = await myAPI.get("/");
     return data;
   } catch (error) {

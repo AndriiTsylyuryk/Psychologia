@@ -24,20 +24,17 @@ import { selectIsLight } from "./redux/burger/selectors";
 function App() {
   const dispatch: AppDispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(getMeThunk());
   }, [dispatch]);
 
-  
   const isRefreshing = useSelector(selectIsRefreshing);
 
   const isDark = useSelector(selectIsLight);
 
-  return isRefreshing ? (
-    <Loader />
-  ) : (
+  return (
     <div className="container" data-theme={isDark ? "dark" : "light"}>
+      {isRefreshing &&<Loader />}
       <BurgerMenu />
       <AppBar />
       <Routes>

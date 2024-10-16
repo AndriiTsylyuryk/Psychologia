@@ -19,14 +19,14 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["accessToken"],
+  whitelist: ["accessToken", "isDark"],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     burger: burgerReducer,
-    theme: themeReducer,
+    theme: persistReducer(persistConfig, themeReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -39,12 +39,12 @@ export const store = configureStore({
 export const persistor = persistStore(store);
 
 export type RootState = {
-  auth: AuthState; 
+  auth: AuthState;
 };
 export type AppDispatch = typeof store.dispatch;
 
 export interface UserType {
   id: string;
-  name: string; 
-  email: string; 
+  name: string;
+  email: string;
 }

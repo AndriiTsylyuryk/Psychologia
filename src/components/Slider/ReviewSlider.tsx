@@ -13,8 +13,8 @@ export default function ReviewSlider() {
       text: "'Ви супер, допомогли справитись з залежністю'",
       name: "Анна",
     },
-    { text: "'Гарні циці'", name: "Микола" },
-    { text: "'Дупа топ'", name: "Андрій" },
+    { text: "'Дякую за поміч'", name: "Микола" },
+    { text: "'Це наша не остання зусріч'", name: "Андрій" },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function ReviewSlider() {
           type: "fraction",
         }}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        navigation={true}
+        // navigation={true}
         modules={[Pagination, Navigation, Autoplay]}
         className={style.swiper}
         speed={1000}
@@ -33,10 +33,8 @@ export default function ReviewSlider() {
           return (
             <SwiperSlide className={style.swiperslide}>
               <div className={style.naming}>
-                
                 <span>{item.name}</span>
               </div>
-
               <p>{item.text}</p>
             </SwiperSlide>
           );
