@@ -20,6 +20,7 @@ import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import AppBar from "./components/AppBar/AppBar";
 import { AppDispatch } from "./redux/store";
 import { selectIsLight } from "./redux/burger/selectors";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -34,48 +35,54 @@ function App() {
 
   return (
     <div className="container" data-theme={isDark ? "dark" : "light"}>
-      {isRefreshing &&<Loader />}
-      <BurgerMenu />
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="about"
-            element={
-              <PrivateRoute>
-                <About />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calendar"
-            element={
-              <PrivateRoute>
-                <Calendar />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Route>
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <div>
+          <Toaster/>
+          <BurgerMenu />
+          <AppBar />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route
+                path="about"
+                element={
+                  <PrivateRoute>
+                    <About />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="calendar"
+                element={
+                  <PrivateRoute>
+                    <Calendar />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Route>
 
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
-      </Routes>
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </div>
+      )}
     </div>
   );
 }

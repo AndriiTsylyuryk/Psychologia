@@ -3,7 +3,7 @@ import { selectIsError, selectIsLoggedIn } from "@/redux/auth/selector";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import style from "./LoginForm.module.css";
@@ -12,8 +12,9 @@ YupPassword(Yup);
 import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
-  const isLoggendIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate(); 
 
   const schema = Yup.object({
     email: Yup.string()
@@ -38,9 +39,9 @@ const LoginForm = () => {
     dispatch(loginThunk(values))
       .unwrap()
       .then(() => {
-        toast.error("Логін успішно!");
-        console.log("Логін успішно");
         resetForm();
+        toast.success("Логін успішно!");
+        navigate("/about");
       })
       .catch((error) => {
         if (error === "Wrong password") {
@@ -51,13 +52,10 @@ const LoginForm = () => {
       });
   };
 
-  if (isLoggendIn) {
-    return <Navigate to="/" />;
+  if (isLoggedIn) {
+    return null;
   }
 
-
-
-  
   return (
     <div>
       <div>
@@ -67,7 +65,6 @@ const LoginForm = () => {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
-        
       >
         {({ handleSubmit }) => (
           <Form className={style.form} onSubmit={handleSubmit}>
@@ -111,5 +108,4 @@ const LoginForm = () => {
     </div>
   );
 };
-
 export default LoginForm;

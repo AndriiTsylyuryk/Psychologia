@@ -42,7 +42,7 @@ const RegisterForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, resetForm ) => {
+  const handleSubmit = (values, resetForm) => {
     dispatch(registerThunk(values))
       .unwrap()
       .then(() => {
