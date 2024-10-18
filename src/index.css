@@ -16,8 +16,7 @@
   color: var(--color-primary);
 }
 
-
-[data-theme='dark'] {
+[data-theme="dark"] {
   background-color: var(--color-dark-bg);
   color: var(--color-dark-text);
 }
@@ -48,6 +47,12 @@ img {
   display: block;
   min-width: 100%; /* added for mobile  */
   height: auto; /* added for mobile  */
+}
+
+.toast1 {
+  background-color: #286099;
+  padding: 16px;
+  color: #713200;
 }
 @layer base {
   :root {
@@ -113,11 +118,12 @@ img {
   }
 }
 
+
+
 .container {
   min-width: 320px;
   margin: 0 auto;
-  /* padding: 80px 20px 0 20px; */
- 
+
 }
 
 @media screen and (min-width: 768px) {
@@ -125,7 +131,6 @@ img {
     min-width: 768px;
     margin: 0 auto;
     padding: 124px 32px 0 32px;
-   
   }
 }
 

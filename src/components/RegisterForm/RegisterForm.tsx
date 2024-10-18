@@ -11,11 +11,6 @@ import toast, { Toaster } from "react-hot-toast";
 const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const errorFromDB = () => {
-    if (useSelector(selectIsError) === "Email in use")
-      return "Цей емейл вже використовується";
-  };
-
   const schema = Yup.object({
     name: Yup.string()
       .required("Це поле необхідне!")
@@ -50,16 +45,14 @@ const RegisterForm = () => {
         resetForm();
       })
       .catch((error) => {
-        toast.error(errorFromDB);
+        if (error === "Email in use") {
+          toast.error("Цей емейл вже використовується");
+        }
       });
   };
 
   return (
     <div>
-      <div>
-        <Toaster />
-      </div>
-      {/* {error && toast.error(error)} */}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

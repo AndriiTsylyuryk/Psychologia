@@ -40,7 +40,7 @@ const LoginForm = () => {
       .unwrap()
       .then(() => {
         resetForm();
-        toast.success("Логін успішно!");
+        toast.success("Ви успішно увійшли!");
         navigate("/about");
       })
       .catch((error) => {
@@ -58,9 +58,6 @@ const LoginForm = () => {
 
   return (
     <div>
-      <div>
-        <Toaster />
-      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

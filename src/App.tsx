@@ -39,7 +39,11 @@ function App() {
         <Loader />
       ) : (
         <div>
-          <Toaster/>
+          <Toaster
+            toastOptions={{
+              className: 'toast1'
+            }}
+          />
           <BurgerMenu />
           <AppBar />
           <Routes>
