@@ -18,20 +18,25 @@ const Home = () => {
             Привіт, <div className={style.heroImg}></div>
             <span>я твій Психолог</span>
           </h1>
-
           <ReviewSlider />
-
           <div className={style.media}>
-            <LiaInstagram className={style.icon} size={50} />
-            <FaWhatsapp className={style.icon} size={50} />
+            <a
+              href="https://www.instagram.com/alina_smelyanets_?igsh=YmVlaG83Nm1yaHN2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LiaInstagram className={style.icon} size={50} />
+            </a>
+            <a
+              href="https://wa.me/37253704388"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp className={style.icon} size={50} />
+            </a>
           </div>
         </>
       )}
-      {/* {isLoggedIn && (
-        <Fade className={style.header} delay={1000}>
-          Вітаю на платформі
-        </Fade>
-      )} */}
     </div>
   );
 };

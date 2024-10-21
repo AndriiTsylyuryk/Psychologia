@@ -2,17 +2,18 @@ import { selectIsLoggedIn, selectUser } from "@/redux/auth/selector";
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
 import "./BurgerMenu.css";
 import { logoutThunk } from "@/redux/auth/operations";
 import { selectIsOpenBurger } from "@/redux/burger/selectors";
 import { toggleBurgerMenu } from "@/redux/burger/slice";
 import NightButton from "../NightButton/NightButton";
+import toast from "react-hot-toast";
+
 
 const BurgerMenu = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
-
+  const navigate = useNavigate();
   const isOpen = useSelector(selectIsOpenBurger);
 
   const dispatch = useDispatch();
@@ -27,9 +28,17 @@ const BurgerMenu = () => {
   const handleOnClose = () => {
     dispatch(toggleBurgerMenu());
   };
+  const handleLogout = () => {
+    dispatch(logoutThunk())
+      .unwrap()
+      .then(() => {
+        toast.success("Ви успішно вийшли");
+        navigate("/");
+      })
+      .catch();
+  };
 
   return (
-    
     <Menu
       isOpen={isOpen}
       onOpen={handleOnOpen}
@@ -57,7 +66,12 @@ const BurgerMenu = () => {
             Календар
           </NavLink>
 
-          <button onClick={() => dispatch(logoutThunk()) && handleCloseMenu()}>
+          <button
+            onClick={() => {
+              handleLogout();
+              handleCloseMenu();
+            }}
+          >
             Вихід
           </button>
         </>

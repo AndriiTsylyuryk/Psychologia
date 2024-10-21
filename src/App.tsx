@@ -40,9 +40,7 @@ function App() {
       ) : (
         <div>
           <Toaster
-            toastOptions={{
-              className: 'toast1'
-            }}
+            containerStyle={{top: 60}}
           />
           <BurgerMenu />
           <AppBar />
@@ -67,7 +65,6 @@ function App() {
               />
               <Route path="*" element={<NotFound />} />
             </Route>
-
             <Route
               path="/login"
               element={

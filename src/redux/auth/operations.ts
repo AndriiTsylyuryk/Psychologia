@@ -57,12 +57,12 @@ export const getMeThunk = createAsyncThunk<
 >("getMe", async (_, thunkAPI) => {
   const savedToken = thunkAPI.getState().auth.accessToken;
   const savedTheme = thunkAPI.getState().theme.isDark;
+  thunkAPI.dispatch(setTheme(savedTheme));
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("no token");
   }
   try {
     setToken(savedToken);
-    thunkAPI.dispatch(setTheme(savedTheme));
     const { data } = await myAPI.get("/");
     return data;
   } catch (error) {
