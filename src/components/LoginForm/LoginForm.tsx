@@ -10,11 +10,12 @@ import style from "./LoginForm.module.css";
 import { AppDispatch } from "@/redux/store";
 YupPassword(Yup);
 import toast, { Toaster } from "react-hot-toast";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 const LoginForm = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const schema = Yup.object({
     email: Yup.string()
@@ -88,7 +89,6 @@ const LoginForm = () => {
               component="div"
               className={style.error}
             />
-
             <button type="submit" className={style.button}>
               Вхід
             </button>
@@ -102,6 +102,7 @@ const LoginForm = () => {
           </Form>
         )}
       </Formik>
+      <GoogleLogin />
     </div>
   );
 };

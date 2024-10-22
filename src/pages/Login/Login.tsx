@@ -17,13 +17,9 @@ const Login = () => {
   
   return (
     <div className={styles.login}>
-      {/* {<AppBar />} */}
-      {/* "<div className={styles.textBackground}>
-        <h2 className={styles.title}>Психолог Аліна Смєлянець</h2>
-      </div>" */}
-      <Fade delay={1000}>
+     
         <LoginForm/>
-      </Fade>
+      
     </div>
   );
 };

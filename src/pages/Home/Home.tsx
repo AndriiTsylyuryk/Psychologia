@@ -1,12 +1,14 @@
-import React from "react";
-import { Fade } from "react-awesome-reveal";
+
 import style from "./Home.module.css";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selector";
 import ReviewSlider from "@/components/Slider/ReviewSlider";
 import { LiaInstagram } from "react-icons/lia";
 import { FaWhatsapp } from "react-icons/fa";
-import { Navigate, NavLink } from "react-router-dom";
+
+
+
+
 const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
