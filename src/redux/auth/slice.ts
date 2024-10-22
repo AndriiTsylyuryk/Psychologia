@@ -56,7 +56,8 @@ const slice = createSlice({
         state.error = "";
       }).addCase(loginWithGoogle.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.accessToken = action.payload.accessToken;
+        console.log(action.payload)
+        state.accessToken = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

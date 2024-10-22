@@ -41,12 +41,18 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
+
+
+
+
+
 export const loginWithGoogle = createAsyncThunk(
   "googleLogin",
   async (code: string, thunkApi) => {
     try {
       const response = await myAPI.post("auth/confirm-oauth", { code });
       const { accessToken } = response.data.data;
+      console.log(accessToken)
       setToken(accessToken);
       return accessToken;
     } catch (error) {
@@ -54,6 +60,14 @@ export const loginWithGoogle = createAsyncThunk(
     }
   }
 );
+
+
+
+
+
+
+
+
 
 export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
   try {
