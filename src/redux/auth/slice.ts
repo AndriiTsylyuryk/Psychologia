@@ -56,10 +56,12 @@ const slice = createSlice({
         state.error = "";
       }).addCase(loginWithGoogle.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        console.log(action.payload)
         state.accessToken = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+      }).addCase(loginWithGoogle.pending, (state, action) => {
+        state.isLoggedIn = false;
+        state.isRefreshing = true;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {
