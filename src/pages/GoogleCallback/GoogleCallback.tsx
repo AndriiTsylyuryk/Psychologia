@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { myAPI, setToken } from "@/config/API";
+import { useDispatch } from "react-redux";
+import { loginWithGoogle } from "@/redux/auth/operations"; // імпортуй свій Thunk
 
 const GoogleCallback = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleGoogleLogin = async () => {
@@ -12,23 +13,23 @@ const GoogleCallback = () => {
       const code = urlParams.get("code");
 
       if (code) {
-        try {
-          const response = await myAPI.post("/auth/confirm-oauth", { code });
-          const { accessToken } = response.data.data;
-
-          setToken(accessToken);
-          
-          navigate("/");
-        } catch (error) {
-          console.error("Помилка під час логіну через Google:", error);
-        }
+        // Викликаємо Thunk для обробки авторизації через Google
+        dispatch(loginWithGoogle(code))
+          .unwrap()
+          .then(() => {
+            console.log(code);
+            navigate("/about");
+          })
+          .catch((error) => {
+            console.error("Помилка під час логіну через Google:", error);
+          });
       } else {
         console.error("Немає коду авторизації в URL");
       }
     };
 
     handleGoogleLogin();
-  }, [navigate]);
+  }, [dispatch, navigate]);
 
   return <div>Авторизація через Google...</div>;
 };

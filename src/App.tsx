@@ -21,6 +21,7 @@ import AppBar from "./components/AppBar/AppBar";
 import { AppDispatch } from "./redux/store";
 import { selectIsLight } from "./redux/burger/selectors";
 import { Toaster } from "react-hot-toast";
+import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -39,9 +40,7 @@ function App() {
         <Loader />
       ) : (
         <div>
-          <Toaster
-            containerStyle={{top: 60}}
-          />
+          <Toaster containerStyle={{ top: 60 }} />
           <BurgerMenu />
           <AppBar />
           <Routes>
@@ -70,6 +69,14 @@ function App() {
               element={
                 <PublicRoute>
                   <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/google/callback"
+              element={
+                <PublicRoute>
+                  <GoogleCallback />
                 </PublicRoute>
               }
             />

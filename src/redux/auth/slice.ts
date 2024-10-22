@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getMeThunk,
   loginThunk,
+  loginWithGoogle,
   logoutThunk,
   registerThunk,
 } from "./operations";
@@ -53,6 +54,11 @@ const slice = createSlice({
         state.error = action.payload;
         state.isRefreshing = false;
         state.error = "";
+      }).addCase(loginWithGoogle.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.accessToken = action.payload.accessToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {
