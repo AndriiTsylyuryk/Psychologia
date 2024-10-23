@@ -6,6 +6,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import timeGridPlugin from "@fullcalendar/timegrid";
 
 import "./CustomStyles.css";
+
+
 const Calendar = () => {
   return (
     <div>

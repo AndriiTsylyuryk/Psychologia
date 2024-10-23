@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getLoginWithGoogle,
   getMeThunk,
   loginThunk,
   loginWithGoogle,
@@ -7,6 +8,7 @@ import {
   registerThunk,
 } from "./operations";
 import { AuthState } from "../authTypes/authTypes";
+import { stat } from "fs";
 
 const initialState: AuthState = {
   user: {
@@ -62,6 +64,8 @@ const slice = createSlice({
       }).addCase(loginWithGoogle.pending, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = true;
+      }).addCase(getLoginWithGoogle.pending, (state, action )=>{
+        state.isRefreshing = true
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {

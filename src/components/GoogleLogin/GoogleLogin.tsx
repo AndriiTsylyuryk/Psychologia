@@ -1,16 +1,15 @@
 import { myAPI } from "@/config/API";
-import React from "react";
+
 import { FcGoogle } from "react-icons/fc";
 import style from "./GoogleLogin.module.css";
+import { useDispatch } from "react-redux";
+import { getLoginWithGoogle } from "@/redux/auth/operations";
 const GoogleLogin = () => {
-  const handleLogin = async () => {
-    try {
-      const response = await myAPI.get("auth/get-oauth-url");
-      const googleUrl = response.data.data.url;
-      window.location.href = googleUrl;
-    } catch (error) {
-      console.error("Error:", error);
-    }
+  const dispath = useDispatch();
+
+
+  const handleLogin = () => {
+    dispath(getLoginWithGoogle())
   };
 
   return (
