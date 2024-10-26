@@ -19,7 +19,7 @@ const Calendar = () => {
 
     if (title) {
       try {
-        await myAPI.post("/api/create-event", { 
+        await myAPI.post("/calendar/event", { 
           start,
           end,
           title,
