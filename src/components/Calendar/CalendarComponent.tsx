@@ -19,14 +19,14 @@ const Calendar = () => {
 
     if (title) {
       try {
-        await myAPI.post("/calendar/event", { 
+        await myAPI.post("calendar/event", { 
           start,
           end,
           title,
         });
         alert("Запит на зустріч надіслано!");
       } catch (error) {
-        console.error("Помилка при надсиланні запиту:", error);
+        console.error(error);
       }
     }
   };
