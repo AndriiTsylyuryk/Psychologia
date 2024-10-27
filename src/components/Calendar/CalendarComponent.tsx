@@ -47,6 +47,8 @@ const Calendar = () => {
         events={{ googleCalendarId }} 
         selectable={true}
         select={handleDateSelect}
+        eventClick={(eventInfo) => {
+          eventInfo.jsEvent.preventDefault(); console.log(eventInfo);}}
       />
     </div>
   );
