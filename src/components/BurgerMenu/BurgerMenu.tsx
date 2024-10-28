@@ -9,12 +9,13 @@ import { selectIsOpenBurger } from "@/redux/burger/selectors";
 import { toggleBurgerMenu } from "@/redux/burger/slice";
 import NightButton from "../NightButton/NightButton";
 import toast from "react-hot-toast";
-
+import { useTranslation } from "react-i18next";
 
 const BurgerMenu = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
   const navigate = useNavigate();
   const isOpen = useSelector(selectIsOpenBurger);
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const BurgerMenu = () => {
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
-        toast.success("Ви успішно вийшли");
+        toast.success(t("logged out successfully"));
         navigate("/");
       })
       .catch();
@@ -48,7 +49,7 @@ const BurgerMenu = () => {
     >
       {!isLoggendIn && (
         <NavLink to="/login" onClick={() => handleCloseMenu()}>
-          Вхід
+          {t("sign up")}
         </NavLink>
       )}
       {!isLoggendIn && (

@@ -61,7 +61,6 @@ const LanguageSwitcher = () => {
     }),
     option: (provided, state) => ({
       ...provided,
-      // Custom styles for options
       backgroundColor: (state.isFocused && "transperrent"),
       color: state.isFocused ? "black" : "black",
       padding: "10px",

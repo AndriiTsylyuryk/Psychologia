@@ -1,4 +1,10 @@
 {
   "hello": "Привіт,",
-  "i am your psychologist": "я твій психолог"
+  "i am your psychologist": "я твій психолог",
+  "sign up": "Вхід",
+  "register": "Реєстрація",
+  "about": "Про психолога",
+  "calendar": "Календар",
+  "exit": "Вихід",
+  "logged out successfully": "Ви успішно вийшли"
 }
