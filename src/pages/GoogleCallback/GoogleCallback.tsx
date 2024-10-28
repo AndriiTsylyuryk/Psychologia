@@ -20,11 +20,9 @@ const GoogleCallback = () => {
           navigate("/about");
         })
         .catch((error) => {
-          console.error("Помилка під час логіну через Google:", error);
+          console.error(error);
         });
-    } else {
-      console.error("Немає коду авторизації в URL");
-    }
+    } 
   }, [dispatch, location.search, navigate]);
 
   return <div>Авторизація через Google...</div>;

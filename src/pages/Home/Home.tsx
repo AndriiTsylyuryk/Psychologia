@@ -1,24 +1,21 @@
-
 import style from "./Home.module.css";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selector";
 import ReviewSlider from "@/components/Slider/ReviewSlider";
 import { LiaInstagram } from "react-icons/lia";
 import { FaWhatsapp } from "react-icons/fa";
-
-
-
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  const { t } = useTranslation();
   return (
     <div className={style.home}>
       {!isLoggedIn && (
         <>
           <h1 className={style.h1}>
-            Привіт, <div className={style.heroImg}></div>
-            <span>я твій Психолог</span>
+            {t('hello')} <div className={style.heroImg}></div>
+            <span>{t("i am your psychologist")}</span>
           </h1>
           <ReviewSlider />
           <div className={style.media}>

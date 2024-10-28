@@ -8,7 +8,7 @@ import {
   registerThunk,
 } from "./operations";
 import { AuthState } from "../authTypes/authTypes";
-import { stat } from "fs";
+
 
 const initialState: AuthState = {
   user: {

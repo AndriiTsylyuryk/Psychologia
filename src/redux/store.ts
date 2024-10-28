@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authReducer } from "./auth/slice";
+import languageReducer from "./language/slice";
 import { burgerReducer, themeReducer } from "./burger/slice";
 import {
   persistStore,
@@ -19,7 +20,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["accessToken", "isDark"],
+  whitelist: ["accessToken", "isDark", "language"],
 };
 
 export const store = configureStore({
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(persistConfig, authReducer),
     burger: burgerReducer,
     theme: persistReducer(persistConfig, themeReducer),
+    language: persistReducer(persistConfig, languageReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

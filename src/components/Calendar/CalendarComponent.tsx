@@ -48,7 +48,7 @@ const Calendar = () => {
         selectable={true}
         select={handleDateSelect}
         eventClick={(eventInfo) => {
-          eventInfo.jsEvent.preventDefault(); console.log(eventInfo);}}
+        eventInfo.jsEvent.preventDefault(); console.log(eventInfo);}}
       />
     </div>
   );
