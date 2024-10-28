@@ -49,22 +49,22 @@ const BurgerMenu = () => {
     >
       {!isLoggendIn && (
         <NavLink to="/login" onClick={() => handleCloseMenu()}>
-          {t("sign up")}
+          {t("sign in")}
         </NavLink>
       )}
       {!isLoggendIn && (
         <NavLink to="/register" onClick={() => handleCloseMenu()}>
-          Реєстрація
+          {t("register")}
         </NavLink>
       )}
       {isLoggendIn && (
         <>
           <NavLink to="/about" onClick={() => handleCloseMenu()}>
-            Про мене
+            {t("about")}
           </NavLink>
 
           <NavLink to="/calendar" onClick={() => handleCloseMenu()}>
-            Календар
+            {t("calendar")}
           </NavLink>
 
           <button
@@ -73,7 +73,7 @@ const BurgerMenu = () => {
               handleCloseMenu();
             }}
           >
-            Вихід
+            {t("exit")}
           </button>
         </>
       )}

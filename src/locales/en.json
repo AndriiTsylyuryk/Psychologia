@@ -1,5 +1,26 @@
 {
   "hello": "Hello,",
-  "i am your psychologist": "i'm your psychologist",
-  "logged out successfully": "Logged out successfully"
+  "i am your psychologist": "I'm your psychologist",
+  "sign in": "Sign in",
+  "register": "Register",
+  "about": "About",
+  "calendar": "Calendar",
+  "exit": "Sign out",
+  "logged out successfully": "Logged out successfully",
+  "enter your email": "Enter your email",
+  "enter your password": "Enter your password",
+  "no account?": "No account?",
+  "click": "Click",
+  "wrong password": "Wrong password",
+  "user not found": "User not found",
+  "you have successfully logged in": "You have successfully logged in!",
+  "valid email required": "A valid email is required!",
+  "required field": "This field is required!",
+  "min 3 characters": "Minimum 3 characters!",
+  "max 50 characters": "Maximum 50 characters!",
+  "registration successful": "Registration successful!",
+  "email in use": "This email is already in use",
+  "enter your name": "Enter your name",
+  "already have an account?": "Already have an account?",
+  "sign up with google": "Sign up with Google"
 }

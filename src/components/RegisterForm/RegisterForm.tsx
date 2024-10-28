@@ -1,25 +1,27 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./RegisterForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { registerThunk } from "@/redux/auth/operations";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { AppDispatch } from "@/redux/store";
-import { selectIsError } from "@/redux/auth/selector";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+
 const RegisterForm = () => {
+  const { t } = useTranslation(); // Додано функцію t для перекладу
   const dispatch = useDispatch<AppDispatch>();
 
   const schema = Yup.object({
     name: Yup.string()
-      .required("Це поле необхідне!")
-      .min(3, "Мінімум 3 літери!")
-      .max(50, "Максимум 50 літер!"),
+      .required(t("required field"))
+      .min(3, t("min 3 characters"))
+      .max(50, t("max 50 characters")),
 
     email: Yup.string()
-      .email("Має бути валідний емейл!")
-      .required("Це поле необхідне!"),
+      .email(t("valid email required"))
+      .required(t("required field")),
     password: Yup.string()
       .password()
       .minLowercase(0)
@@ -28,7 +30,7 @@ const RegisterForm = () => {
       .minUppercase(0)
       .minSymbols(0)
       .minNumbers(0)
-      .required("Це поле необхідне!"),
+      .required(t("required field")),
   });
 
   const initialValues = {
@@ -37,16 +39,16 @@ const RegisterForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values, resetForm) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(registerThunk(values))
       .unwrap()
       .then(() => {
-        toast.success("Реєстрація успішна!");
+        toast.success(t("registration successful"));
         resetForm();
       })
       .catch((error) => {
         if (error === "Email in use") {
-          toast.error("Цей емейл вже використовується");
+          toast.error(t("email in use"));
         }
       });
   };
@@ -62,34 +64,36 @@ const RegisterForm = () => {
           <Field
             className={styles.input}
             name="name"
-            placeholder="Введіть вашe ім'я"
+            placeholder={t("enter your name")}
           />
           <ErrorMessage name="name" component="div" className={styles.error} />
 
           <Field
             className={styles.input}
             name="email"
-            placeholder="Введіть ваш емейл"
+            placeholder={t("enter your email")}
           />
           <ErrorMessage name="email" component="div" className={styles.error} />
+
           <Field
             className={styles.input}
             name="password"
             type="password"
-            placeholder="Введіть ваш пароль"
+            placeholder={t("enter your password")}
           />
           <ErrorMessage
             name="password"
             component="div"
             className={styles.error}
           />
+
           <button className={styles.button} type="submit">
-            Зареєструватися
+            {t("register")}
           </button>
           <div className={styles.register}>
-            <p className={styles.text}>Вже маєш аккаунт?</p>
+            <p className={styles.text}>{t("already have an account?")}</p>
             <Link className={styles.link} to="/login">
-              Тиць
+              {t("click")}
             </Link>
           </div>
         </Form>
