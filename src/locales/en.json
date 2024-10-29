@@ -14,13 +14,27 @@
   "wrong password": "Wrong password",
   "user not found": "User not found",
   "you have successfully logged in": "You have successfully logged in!",
-  "valid email required": "A valid email is required!",
   "required field": "This field is required!",
   "min 3 characters": "Minimum 3 characters!",
   "max 50 characters": "Maximum 50 characters!",
+  "valid email required": "A valid email is required!",
   "registration successful": "Registration successful!",
   "email in use": "This email is already in use",
   "enter your name": "Enter your name",
   "already have an account?": "Already have an account?",
-  "sign up with google": "Sign up with Google"
+  "sign up with google": "Sign up with Google",
+  "reviews": [
+    {
+      "text": "'You are amazing, you helped me overcome my addiction'",
+      "name": "Anna"
+    },
+    {
+      "text": "'Thank you for your help'",
+      "name": "Mykola"
+    },
+    {
+      "text": "'This is not our last meeting'",
+      "name": "Andrii"
+    }
+  ]
 }

@@ -22,5 +22,19 @@
   "email in use": "Цей емейл вже використовується",
   "enter your name": "Введіть вашe ім'я",
   "already have an account?": "Вже маєш аккаунт?",
-  "sign up with google": "Увійти з Google"
+  "sign up with google": "Увійти з Google",
+  "reviews": [
+    {
+      "text": "'Ви супер, допомогли справитись з залежністю'",
+      "name": "Анна"
+    },
+    {
+      "text": "'Дякую за поміч'",
+      "name": "Микола"
+    },
+    {
+      "text": "'Це наша не остання зустріч'",
+      "name": "Андрій"
+    }
+  ]
 }

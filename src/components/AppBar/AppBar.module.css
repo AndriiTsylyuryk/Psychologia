@@ -6,13 +6,13 @@
   margin-right: auto;
   height: var(--header-h);
   display: flex;
-  gap: 24px;
+  gap: 5px;
   align-items: center;
 }
 
 .name {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .name > span {
