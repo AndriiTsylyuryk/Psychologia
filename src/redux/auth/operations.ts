@@ -87,6 +87,7 @@ export const getMeThunk = createAsyncThunk<
   const savedToken = thunkAPI.getState().auth.accessToken;
   const savedTheme = thunkAPI.getState().theme.isDark;
   const savedLanguage = thunkAPI.getState().language.language;
+  const savedEmail = thunkAPI.getState().auth.user.email;
   thunkAPI.dispatch(setTheme(savedTheme));
   thunkAPI.dispatch(setLanguage(savedLanguage), changeLanguage(savedLanguage));
 

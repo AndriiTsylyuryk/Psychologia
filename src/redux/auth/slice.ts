@@ -9,16 +9,14 @@ import {
 } from "./operations";
 import { AuthState } from "../authTypes/authTypes";
 
-
 const initialState: AuthState = {
   user: {
     name: "",
-    email: "",
+    email: null,
   },
   accessToken: null,
   isLoggedIn: false,
   isRefreshing: false,
-  error: "",
 };
 
 const slice = createSlice({
@@ -28,52 +26,49 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerThunk.fulfilled, (state, action) => {
-        state.user = action.payload.user;
         state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.error = "";
+        state.user.email = action.payload.data.email;
       })
       .addCase(registerThunk.pending, (state, action) => {
-        state.error = "";
         state.isRefreshing = true;
       })
       .addCase(registerThunk.rejected, (state, action) => {
-        state.error = action.payload;
         state.isRefreshing = false;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
-        state.user = action.payload.user;
         state.accessToken = action.payload.data.accessToken;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+        state.user.email = action.payload.data.email;
       })
       .addCase(loginThunk.pending, (state, action) => {
-        state.error = "";
         state.isRefreshing = true;
       })
       .addCase(loginThunk.rejected, (state, action) => {
-        state.error = action.payload;
         state.isRefreshing = false;
-        state.error = "";
-      }).addCase(loginWithGoogle.fulfilled, (state, action) => {
+      })
+      .addCase(loginWithGoogle.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.accessToken = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-      }).addCase(loginWithGoogle.pending, (state, action) => {
+        state.user.email = action.payload.data.email;
+      })
+      .addCase(loginWithGoogle.pending, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = true;
-      }).addCase(getLoginWithGoogle.pending, (state, action )=>{
-        state.isRefreshing = true
+      })
+      .addCase(getLoginWithGoogle.pending, (state, action) => {
+        state.isRefreshing = true;
       })
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {
           state.isLoggedIn = true;
-          state.isRefreshing = false;
-          state.user.name = action.payload.name;
-          state.user.email = action.payload.email;
+          state.isRefreshing = false; 
         }
+        
       })
       .addCase(getMeThunk.pending, (state) => {
         state.isRefreshing = true;
