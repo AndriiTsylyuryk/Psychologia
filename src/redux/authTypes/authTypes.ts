@@ -1,7 +1,7 @@
 // authTypes.ts
 export interface User {
   name: string;
-  email: string;
+  email: null | string;
 }
 
 export interface AuthState {
@@ -9,5 +9,4 @@ export interface AuthState {
   accessToken: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
-  error: String;
 }
