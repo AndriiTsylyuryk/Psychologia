@@ -36,5 +36,9 @@
       "text": "'This is not our last meeting'",
       "name": "Andrii"
     }
-  ]
+  ],
+  "please enter details": "Please enter details:",
+  "request sent": "Request sent",
+  "timeslot unavailabe":"Timeslot unavailabe",
+  "today": "Today"
 }

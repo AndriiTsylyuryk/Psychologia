@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 const LoginForm = () => {
-  const { t } = useTranslation(); // Отримуємо t для перекладу
+  const { t } = useTranslation();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();

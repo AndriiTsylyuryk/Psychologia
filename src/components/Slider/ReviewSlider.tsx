@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 export default function ReviewSlider() {
   const { t } = useTranslation();
 
-  // Відгуки з використанням `t` для перекладу
+ 
   const carouselTexts = [
     {
       text: t("reviews.0.text"),

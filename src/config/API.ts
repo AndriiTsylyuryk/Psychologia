@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const myAPI = axios.create({
-  baseURL: "https://psychologia-back-end.onrender.com/",
+  baseURL: "http://localhost:3000/",
 });
 
 export const setToken = (token) => {
