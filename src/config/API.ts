@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const myAPI = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://psychologia-eight.vercel.app/",
 });
 
 export const setToken = (token) => {
