@@ -43,13 +43,17 @@
   "today": "Сьогодні",
   "about2": "ПРО",
   "me": "МЕНЕ",
-  "emotional states": "Проблемні емоційні стани",
+  "emotional states": "Проблемні емоційні стани:",
   "A beginner psychologist and certified NLP (Neuro-Linguistic Programming) practitioner. I am currently in my fifth year at Sumy State Pedagogical University named after A.S. Makarenko.": "Психолог-початківець, сертифікований НЛП (нейролінгвістичне програмування) практик. Навчаюся на 5 курсі Сумського педагогічного університету ім. А.С. Макаренка",
   "requests i work with:": "Запити, з якими працюю:",
-  "anxiety, depression, apathy, worry, fatigue, aggression, helplessness, guilt, insecurity, irritability, etc.":"тривога, депресія, апатія, хвилювання, втома, агресія, безсилля, провина, невпевненість, роздратованість тощо.",
+  "anxiety, depression, apathy, worry, fatigue, aggression, helplessness, guilt, insecurity, irritability, etc.": "Тривога, депресія, апатія, хвилювання, втома, агресія, безсилля, провина, невпевненість, роздратованість тощо.",
   "searching for life goals and new ideas.": "Пошук життєвих цілей і нових ідей.",
   "repetitive behaviors or reactions that hinder.": "Повторювана поведінка чи реакції, які заважають.",
+  "behaviour":"Поведінка:",
   "internal and external conflicts.": "Внутрішні та зовнішні конфлікти.",
+  "search...":"Пошук:",
   "working with limiting beliefs that hinder personal growth.": "Робота з переконаннями, які обмежують особистісний розвиток.",
-  "overcoming fears and phobias.": "Подолання страхів і фобій."
+  "overcoming fears and phobias.": "Подолання страхів і фобій.",
+  "conflicts, beliefs, fears":"Конфлікти, переконання, страхи..."
+
 }

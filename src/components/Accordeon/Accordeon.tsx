@@ -4,23 +4,27 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-
 import React from "react";
 import { useTranslation } from "react-i18next";
+import style from "./Accordeon.module.css";
 
 const Accordeon = () => {
   const { t } = useTranslation();
+
   return (
     <div>
-      <Accordion>
+      <Accordion  defaultExpanded={true}>
         <AccordionSummary
+          sx={{ backgroundColor: "#accef0" }}
+          className={style.accordeonSummary}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
+         
         >
-          <p>{t("emotional states")}</p>
+          <p className={style.accordeonText}>{t("emotional states")}</p>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className={style.accordeonDetails}>
           <p>
             {t(
               "anxiety, depression, apathy, worry, fatigue, aggression, helplessness, guilt, insecurity, irritability, etc."
@@ -30,32 +34,49 @@ const Accordeon = () => {
       </Accordion>
       <Accordion>
         <AccordionSummary
+          sx={{ backgroundColor: "#accef0" }}
           expandIcon={<ArrowDownwardIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
+          aria-controls="panel1-content"
+          id="panel1-header"
         >
-          <Typography>Accordion 2</Typography>
+          <p className={style.accordeonText}>{t("search...")}</p>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <p>{t("searching for life goals and new ideas.")}</p>
         </AccordionDetails>
       </Accordion>
       <Accordion>
         <AccordionSummary
+          sx={{ backgroundColor: "#accef0" }}
           expandIcon={<ArrowDownwardIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
+          aria-controls="panel1-content"
+          id="panel1-header"
         >
-          <Typography>Accordion 2</Typography>
+          <p className={style.accordeonText}>{t("behaviour")}</p>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <p>{t("repetitive behaviors or reactions that hinder.")}</p>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          sx={{ backgroundColor: "#accef0" }}
+          expandIcon={<ArrowDownwardIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <p className={style.accordeonText}>
+            {t("conflicts, beliefs, fears")}
+          </p>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ul>
+            <li>{t("internal and external conflicts.")}</li>
+            <li>
+              {t("working with limiting beliefs that hinder personal growth.")}
+            </li>
+            <li>{t("overcoming fears and phobias.")}</li>
+          </ul>
         </AccordionDetails>
       </Accordion>
     </div>

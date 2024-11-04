@@ -61,7 +61,7 @@ const LanguageSwitcher = () => {
     }),
     menu: (provided) => ({
       ...provided,
-      display: "none", // приховуємо меню
+      // display: "none", 
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -78,7 +78,7 @@ const LanguageSwitcher = () => {
         onChange={handleChange}
         isSearchable={false}
         styles={customStyles}
-        menuIsOpen={false} // вимикаємо випадаюче меню
+        // menuIsOpen={false} // вимикаємо випадаюче меню
       />
     </div>
   );
