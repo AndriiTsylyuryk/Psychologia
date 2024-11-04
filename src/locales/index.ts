@@ -1,9 +1,9 @@
 import en from './en.json';
-import ua from './ua.json';
+import uk from './uk.json';
 
 const resources = {
   en: { translation: en },
-  ua: { translation: ua },
+  uk: { translation: uk },
 };
 
 export default resources;

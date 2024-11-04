@@ -1,0 +1,55 @@
+{
+  "hello": "Привіт,",
+  "i am your psychologist": "я твій психолог",
+  "sign in": "Вхід",
+  "register": "Реєстрація",
+  "about": "Про психолога",
+  "calendar": "Календар",
+  "exit": "Вихід",
+  "logged out successfully": "Ви успішно вийшли",
+  "enter your email": "Введіть ваш емейл",
+  "enter your password": "Введіть ваш пароль",
+  "no account?": "Немає аккаунта?",
+  "click": "Тиць",
+  "wrong password": "Невірний пароль",
+  "user not found": "Юзера не знайдено",
+  "you have successfully logged in": "Ви успішно увійшли!",
+  "required field": "Це поле необхідне!",
+  "min 3 characters": "Мінімум 3 літери!",
+  "max 50 characters": "Максимум 50 літер!",
+  "valid email required": "Має бути валідний емейл!",
+  "registration successful": "Реєстрація успішна!",
+  "email in use": "Цей емейл вже використовується",
+  "enter your name": "Введіть вашe ім'я",
+  "already have an account?": "Вже маєш аккаунт?",
+  "sign up with google": "Увійти з Google",
+  "reviews": [
+    {
+      "text": "'Ви супер, допомогли справитись з залежністю'",
+      "name": "Анна"
+    },
+    {
+      "text": "'Дякую за поміч'",
+      "name": "Микола"
+    },
+    {
+      "text": "'Це наша не остання зустріч'",
+      "name": "Андрій"
+    }
+  ],
+  "please enter details": "Введіть деталі вашої зустрічі:",
+  "request sent": "Запит на зустріч надіслано!",
+  "timeslot unavailabe": "Цей час заброньовано!",
+  "today": "Сьогодні",
+  "about2": "ПРО",
+  "me": "МЕНЕ",
+  "emotional states": "Проблемні емоційні стани",
+  "A beginner psychologist and certified NLP (Neuro-Linguistic Programming) practitioner. I am currently in my fifth year at Sumy State Pedagogical University named after A.S. Makarenko.": "Психолог-початківець, сертифікований НЛП (нейролінгвістичне програмування) практик. Навчаюся на 5 курсі Сумського педагогічного університету ім. А.С. Макаренка",
+  "requests i work with:": "Запити, з якими працюю:",
+  "anxiety, depression, apathy, worry, fatigue, aggression, helplessness, guilt, insecurity, irritability, etc.":"тривога, депресія, апатія, хвилювання, втома, агресія, безсилля, провина, невпевненість, роздратованість тощо.",
+  "searching for life goals and new ideas.": "Пошук життєвих цілей і нових ідей.",
+  "repetitive behaviors or reactions that hinder.": "Повторювана поведінка чи реакції, які заважають.",
+  "internal and external conflicts.": "Внутрішні та зовнішні конфлікти.",
+  "working with limiting beliefs that hinder personal growth.": "Робота з переконаннями, які обмежують особистісний розвиток.",
+  "overcoming fears and phobias.": "Подолання страхів і фобій."
+}

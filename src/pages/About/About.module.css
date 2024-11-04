@@ -1,0 +1,40 @@
+.aboutContainer {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  /* display: flex;
+  justify-content: center; */
+  min-height: 100vh;
+}
+
+.about {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.about > span {
+  color: var(--color-primary);
+}
+
+.heroImg {
+    background-image: url(../../img/DSC05700.jpg);
+    width: 288px;
+    height: 232px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 32px;
+    z-index: 1;
+    background-position: center;
+    margin-bottom: 12px;
+  }
+
+  .aboutText{
+    margin-bottom: 24px;
+  }
+
+  .requestsText{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }

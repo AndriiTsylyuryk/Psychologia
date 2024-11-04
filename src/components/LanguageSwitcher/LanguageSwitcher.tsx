@@ -1,6 +1,5 @@
 import { selectLanguage } from "@/redux/language/selector";
 import { setLanguage } from "@/redux/language/slice";
-
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
@@ -24,7 +23,7 @@ const LanguageSwitcher = () => {
       ),
     },
     {
-      value: "ua",
+      value: "uk",
       label: (
         <ReactCountryFlag
           countryCode="UA"
@@ -40,6 +39,11 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(selectedOption.value);
   };
 
+  const handleLanguageToggle = () => {
+    const nextLanguage = language === "en" ? "uk" : "en";
+    handleChange({ value: nextLanguage });
+  };
+
   const customStyles = {
     indicatorsContainer: (provided) => ({
       ...provided,
@@ -50,31 +54,31 @@ const LanguageSwitcher = () => {
       backgroundColor: "transparent",
       border: "none",
       boxShadow: "none",
+      cursor: "pointer",
       "&:hover": {
         border: "1px solid #aaa",
       },
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: "transparent",
-      border: "none",
+      display: "none", // приховуємо меню
     }),
-    option: (provided, state) => ({
+    singleValue: (provided) => ({
       ...provided,
-      backgroundColor: (state.isFocused && "transperrent"),
-      color: state.isFocused ? "black" : "black",
-      padding: "10px",
+      display: "flex",
+      alignItems: "center",
     }),
   };
 
   return (
-    <div>
+    <div onClick={handleLanguageToggle}>
       <Select
         options={options}
         value={options.find((option) => option.value === language)}
         onChange={handleChange}
         isSearchable={false}
         styles={customStyles}
+        menuIsOpen={false} // вимикаємо випадаюче меню
       />
     </div>
   );

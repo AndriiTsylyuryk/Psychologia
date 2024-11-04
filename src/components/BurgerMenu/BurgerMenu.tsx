@@ -34,7 +34,7 @@ const BurgerMenu = () => {
       .unwrap()
       .then(() => {
         toast.success(t("logged out successfully"));
-        navigate("/");
+        navigate("/about");
       })
       .catch();
   };
