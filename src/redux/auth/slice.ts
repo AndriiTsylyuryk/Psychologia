@@ -54,7 +54,7 @@ const slice = createSlice({
         state.accessToken = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.user.email = action.payload.data.email;
+        // state.user.email = action.payload.data.email;
       })
       .addCase(loginWithGoogle.pending, (state, action) => {
         state.isLoggedIn = false;
