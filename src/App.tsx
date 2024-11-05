@@ -22,6 +22,7 @@ import { AppDispatch } from "./redux/store";
 import { selectIsLight } from "./redux/burger/selectors";
 import { Toaster } from "react-hot-toast";
 import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
+import Prices from "./pages/Prices/Prices";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -59,6 +60,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Calendar />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="prices"
+                element={
+                  <PrivateRoute>
+                    <Prices />
                   </PrivateRoute>
                 }
               />

@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
-  const { t } = useTranslation(); // Додано функцію t для перекладу
+  const { t } = useTranslation(); 
   const dispatch = useDispatch<AppDispatch>();
 
   const schema = Yup.object({

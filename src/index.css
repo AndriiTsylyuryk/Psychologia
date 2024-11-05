@@ -118,19 +118,16 @@ img {
   }
 }
 
-
-
 .container {
   min-width: 320px;
   margin: 0 auto;
-
 }
 
 @media screen and (min-width: 768px) {
   .container {
     min-width: 768px;
     margin: 0 auto;
-    padding: 124px 32px 0 32px;
+    /* padding: 124px 32px 0 32px; */
   }
 }
 

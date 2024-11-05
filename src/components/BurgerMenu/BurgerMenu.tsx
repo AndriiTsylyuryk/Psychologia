@@ -66,6 +66,9 @@ const BurgerMenu = () => {
           <NavLink to="/calendar" onClick={() => handleCloseMenu()}>
             {t("calendar")}
           </NavLink>
+          <NavLink to="/prices" onClick={() => handleCloseMenu()}>
+            {t("prices")}
+          </NavLink>
 
           <button
             onClick={() => {
