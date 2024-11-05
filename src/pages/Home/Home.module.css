@@ -14,9 +14,10 @@
   width: 270px;
 }
 
-.h1 span {
+.span {
   color: var(--color-primary);
   font-size: 32px;
+  font-weight: bold;
 }
 
 .heroImg {
@@ -39,3 +40,16 @@
   display: flex;
   gap: 36px;
 }
+
+
+@media screen and (min-width: 1280px) {
+  .heroContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+  }
+  
+  .heroImg {
+    width: 550px;
+    height: 550px;
+  }}

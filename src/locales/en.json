@@ -58,5 +58,8 @@
   "prices": "Prices",
   "first appointment is free": "First appointment is free",
   "price for Ukraine": "Price for Ukraine - 300 UAH",
-  "price for Europe": "Price for Europe - 10 EUR"
+  "price for Europe": "Price for Europe - 10 EUR",
+  "press here to make an appointment" : "Press here to make an appointment!",
+  "day":"day",
+  "week":"week"
 }

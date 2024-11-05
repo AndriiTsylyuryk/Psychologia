@@ -56,13 +56,14 @@ const Calendar = () => {
         plugins={[timeGridPlugin, googleCalendarPlugin, interactionPlugin]}
         initialView="timeGridDay"
         height={600}
+        headerToolbar={{center:'timeGridWeek,timeGridDay',}}
         nowIndicator={true}
         timeZone="local"
         locale={language}
         allDayText="Час"
         slotMinTime={"08:00:00"}
         slotMaxTime={'20:00:00'}
-        buttonText={{ today: t("today") }}
+        buttonText={{ today: t("today"), day: t("day"), week:t("week") }}
         googleCalendarApiKey={apiKey}
         events={{ googleCalendarId }}
         selectable={true}
@@ -71,6 +72,7 @@ const Calendar = () => {
           eventInfo.jsEvent.preventDefault();
         }}
         eventContent={renderEventContent}
+        
       />
     </div>
   );

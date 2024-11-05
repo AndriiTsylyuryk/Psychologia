@@ -1,6 +1,7 @@
 .fc-toolbar {
   display: flex;
   flex-direction: column;
+gap: 6px;
 }
 
 .closed{

@@ -59,7 +59,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
+    <div className={style.formContainer}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

@@ -7,6 +7,7 @@ padding-left: 16px;
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
+  justify-content: center;
 }
 
 .prices{
@@ -14,4 +15,31 @@ font-size: 32px;
   font-weight: bold;
   color: var(--color-primary);
   margin-bottom: 24px;
+}
+
+.pricesList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.calendarLink{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+@media screen and (min-width: 768px) {
+  .pricesList{
+    font-size: 18px;
+  }
+  .calendarLink{
+    font-size: 18px;
+    font-weight: 700;
+  }
 }

@@ -13,10 +13,13 @@ const Home = () => {
     <div className={style.home}>
       {!isLoggedIn && (
         <>
-          <h1 className={style.h1}>
-            {t('hello')} <div className={style.heroImg}></div>
-            <span>{t("i am your psychologist")}</span>
-          </h1>
+          <div className={style.heroContainer}>
+            <div>
+              <h1 className={style.h1}>{t('hello')}</h1>
+                <span className={style.span}>{t("i am your psychologist")}</span>
+            </div>
+              <div className={style.heroImg}></div>
+          </div>
           <ReviewSlider />
           <div className={style.media}>
             <a
