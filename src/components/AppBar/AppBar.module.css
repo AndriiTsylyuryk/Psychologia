@@ -1,5 +1,5 @@
 .headerContainer {
-  padding:16px;
+  padding: 16px;
   margin-left: auto;
   margin-right: auto;
   height: var(--header-h);
@@ -7,7 +7,10 @@
   gap: 5px;
   align-items: center;
 }
-
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
 .name {
   font-weight: bold;
   font-size: 14px;
@@ -17,10 +20,25 @@
   color: var(--color-primary);
 }
 
-
+.navigation {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
   .name {
-    font-size: 24px;
+    font-size: 18px;
   }
+}
+
+@media screen and (min-width: 1280px) {
+  .headerContainer {
+    gap: 0px;
+    justify-content: space-between;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 24px;
+  }
+  
 }

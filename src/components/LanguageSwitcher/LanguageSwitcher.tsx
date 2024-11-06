@@ -71,7 +71,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div onClick={handleLanguageToggle}>
+    <div >
       <Select
         options={options}
         value={options.find((option) => option.value === language)}

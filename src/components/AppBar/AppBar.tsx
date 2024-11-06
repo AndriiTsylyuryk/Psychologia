@@ -6,15 +6,35 @@ import { logoutThunk } from "../../redux/auth/operations";
 import styles from "./AppBar.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+import NightButton from "../NightButton/NightButton";
 
 const AppBar = () => {
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
   const isLoggendIn = useSelector(selectIsLoggedIn);
+  const { t } = useTranslation();
+
   return (
     <div className={styles.headerContainer}>
-      <NavLink to='/'><p className={styles.name}>Aліна Смєлянець <span>Psychologist</span></p></NavLink>
-      <LanguageSwitcher/>
+      <div className={styles.logoContainer}>
+        <NavLink to="/">
+          <p className={styles.name}>
+            Aліна Смєлянець <span>Psychologist</span>
+          </p>
+        </NavLink>
+        <LanguageSwitcher />
+      </div>
+      <div className={styles.navigation}>
+        <NightButton />
+        {!isLoggendIn && <NavLink to="/login">{t("sign in")}</NavLink>}
+        {!isLoggendIn && <NavLink to="/register">{t("register")}</NavLink>}
+        {isLoggendIn && (
+          <>
+            <NavLink to="/about">{t("about")}</NavLink>
+            <NavLink to="/calendar">{t("calendar")}</NavLink>
+            <NavLink to="/prices">{t("prices")}</NavLink>
+          </>
+        )}
+      </div>
     </div>
   );
 };

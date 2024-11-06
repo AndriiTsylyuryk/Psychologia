@@ -1,10 +1,9 @@
 .home {
-  padding: 32px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* gap: 32px; */
   height: 100vh;
 }
 
@@ -22,7 +21,7 @@
 
 .heroImg {
   background-image: url(../../img/DSC05500.jpg);
-  width: inherit;
+  width: 280px;
   height: 232px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -52,10 +51,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* gap: 64px; */
     height: 100vh;
   }
   .heroContainer {
@@ -73,7 +68,6 @@
   .h1 {
     font-size: 80px;
     font-weight: bold;
-    /* width: 270px; */
   }
 
   .span {
@@ -86,7 +80,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* gap: 48px; */
+
     gap: 0;
     justify-content: space-around;
   }

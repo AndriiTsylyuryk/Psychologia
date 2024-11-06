@@ -35,8 +35,8 @@ function App() {
 
   const isDark = useSelector(selectIsLight);
 
-  return (
-    <div className="container" data-theme={isDark ? "dark" : "light"}>
+  return (<div className='appContainer' data-theme={isDark ? "dark" : "light"}>
+    <div className="container" >
       {isRefreshing ? (
         <Loader />
       ) : (
@@ -100,6 +100,7 @@ function App() {
           </Routes>
         </div>
       )}
+    </div>
     </div>
   );
 }
