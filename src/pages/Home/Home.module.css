@@ -2,9 +2,9 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 32px;
+  /* gap: 32px; */
   height: 100vh;
 }
 
@@ -34,22 +34,60 @@
 .icon {
   color: var(--color-text);
 }
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
 
-
-.media{
+.media {
   display: flex;
   gap: 36px;
 }
 
-
 @media screen and (min-width: 1280px) {
-  .heroContainer{
+  .home {
     display: flex;
     flex-direction: row;
-    gap: 36px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap: 64px; */
+    height: 100vh;
   }
-  
+  .heroContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px;
+    align-items: center;
+  }
+
   .heroImg {
     width: 550px;
-    height: 550px;
-  }}
+    height: 450px;
+  }
+  .h1 {
+    font-size: 80px;
+    font-weight: bold;
+    /* width: 270px; */
+  }
+
+  .span {
+    color: var(--color-primary);
+    font-size: 56px;
+    font-weight: bold;
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* gap: 48px; */
+    gap: 0;
+    justify-content: space-around;
+  }
+}
