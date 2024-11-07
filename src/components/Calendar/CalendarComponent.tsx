@@ -5,13 +5,14 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
 import "./CustomStyles.css";
 import { myAPI } from "@/config/API";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "@/redux/auth/selector";
 import { jwtDecode } from "jwt-decode";
 import { useTranslation } from "react-i18next";
 import { selectLanguage } from "@/redux/language/selector";
-
-
+import CalendarModal from "../Modal/CalendarModal";
+import { selectRequest } from "@/redux/modal/selectors";
+import { clearRequest, toggleModal } from "@/redux/modal/slice";
 
 const Calendar = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
@@ -19,35 +20,52 @@ const Calendar = () => {
   const token = useSelector(selectToken);
   const { t } = useTranslation();
   const language = useSelector(selectLanguage);
+  // const dispatch = useDispatch();
 
+  // const title = useSelector(selectRequest);
 
   const handleDateSelect = async (selectInfo) => {
     const { start, end } = selectInfo;
-    const title = prompt(t("please enter details"));
-    if (title) {
+    // dispatch(toggleModal());
+
+     await const title = () => {
+      return useSelector(selectRequest);
+    };
+
+    if (title()) {
       try {
         await myAPI.post(
           "calendar/event",
           { start, end, title },
           {
             headers: {
-              Authorization: `Bearer ${token}`, 
+              Authorization: `Bearer ${token}`,
             },
           }
         );
         alert(t("request sent"));
       } catch (error) {
         console.error(error);
-      }
+      } 
     }
-  };
 
+    
+  };
 
   const renderEventContent = (eventInfo) => {
     const relatedEvent = eventInfo.event._def.extendedProps.description;
-    const decodedToken = jwtDecode(token)
-     return <div>({relatedEvent === decodedToken.email ? (<span>{eventInfo.event.title}</span>) : <span className='closed'>{t( "timeslot unavailabe")}</span>}
-   )</div>
+    const decodedToken = jwtDecode(token);
+    return (
+      <div>
+        (
+        {relatedEvent === decodedToken.email ? (
+          <span>{eventInfo.event.title}</span>
+        ) : (
+          <span className="closed">{t("timeslot unavailabe")}</span>
+        )}
+        )
+      </div>
+    );
   };
 
   return (
@@ -56,14 +74,14 @@ const Calendar = () => {
         plugins={[timeGridPlugin, googleCalendarPlugin, interactionPlugin]}
         initialView="timeGridDay"
         height={600}
-        headerToolbar={{center:'timeGridWeek,timeGridDay',}}
+        headerToolbar={{ center: "timeGridWeek,timeGridDay" }}
         nowIndicator={true}
         timeZone="local"
         locale={language}
         allDayText="Час"
         slotMinTime={"08:00:00"}
-        slotMaxTime={'20:00:00'}
-        buttonText={{ today: t("today"), day: t("day"), week:t("week") }}
+        slotMaxTime={"20:00:00"}
+        buttonText={{ today: t("today"), day: t("day"), week: t("week") }}
         googleCalendarApiKey={apiKey}
         events={{ googleCalendarId }}
         selectable={true}
@@ -72,8 +90,8 @@ const Calendar = () => {
           eventInfo.jsEvent.preventDefault();
         }}
         eventContent={renderEventContent}
-        
       />
+      <CalendarModal />
     </div>
   );
 };

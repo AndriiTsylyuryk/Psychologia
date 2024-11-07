@@ -1,6 +1,5 @@
 .aboutContainer {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 32px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -20,7 +19,7 @@
 }
 
 .heroImg {
-    background-image: url(../../img/DSC05700.jpg);
+    background-image: url(../../img/DSC05700.jpeg);
     width: 288px;
     height: 232px;
     background-size: cover;
@@ -39,4 +38,22 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 12px;
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .heroImg {
+      width: 350px;
+      height: 300px;
+    }
+    .aboutText{
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .heroImg {
+      width: 550px;
+      height: 400px;
+    }
   }

@@ -20,7 +20,7 @@
 }
 
 .heroImg {
-  background-image: url(../../img/DSC05500.jpg);
+  background-image: url(../../img/DSC05500.jpeg);
   width: 280px;
   height: 232px;
   background-size: cover;
@@ -45,24 +45,23 @@
   gap: 36px;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .home {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 100vh;
   }
-  .heroContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 64px;
-    align-items: center;
-  }
-
   .heroImg {
-    width: 550px;
+    width: 400px;
+    height: 350px
+    ;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .heroImg {
+    width: 590px;
     height: 450px;
   }
   .h1 {

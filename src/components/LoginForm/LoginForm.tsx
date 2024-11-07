@@ -103,7 +103,7 @@ const LoginForm = () => {
           </Form>
         )}
       </Formik>
-      <GoogleLogin />
+      {/* <GoogleLogin /> */}
     </div>
   );
 };

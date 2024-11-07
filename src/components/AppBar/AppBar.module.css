@@ -39,6 +39,7 @@
   .navigation {
     display: flex;
     gap: 24px;
+    align-items: center;
   }
   
 }
