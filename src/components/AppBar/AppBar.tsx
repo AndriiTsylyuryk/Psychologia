@@ -27,11 +27,21 @@ const AppBar = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        <NavLink to="/">
-          <p className={styles.name}>
-            Aліна Смєлянець <span>Psychologist</span>
-          </p>
-        </NavLink>
+        {!isLoggendIn && (
+          <NavLink to="/">
+            <p className={styles.name}>
+              Aліна Смєлянець <span>Psychologist</span>
+            </p>
+          </NavLink>
+        )}
+          {isLoggendIn && (
+          <NavLink to="/about">
+            <p className={styles.name}>
+              Aліна Смєлянець <span>Psychologist</span>
+            </p>
+          </NavLink>
+        )}
+
         <LanguageSwitcher />
       </div>
       <div className={styles.navigation}>
