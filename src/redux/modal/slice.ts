@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   request: "",
   isModalOpen: false,
+  eventData: { start: null, end: null },
 };
 
 const slice = createSlice({
@@ -18,9 +19,12 @@ const slice = createSlice({
     clearRequest(state) {
       state.request = "";
     },
+    setEventData(state, action) {
+      state.eventData = action.payload; 
+    },
   },
 });
 
-export const { setRequest, toggleModal, clearRequest } = slice.actions;
+export const { setRequest, toggleModal, clearRequest,setEventData  } = slice.actions;
 
 export const modalReducer = slice.reducer;

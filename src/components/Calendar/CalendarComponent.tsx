@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { selectLanguage } from "@/redux/language/selector";
 import CalendarModal from "../Modal/CalendarModal";
 import { selectRequest } from "@/redux/modal/selectors";
-import { clearRequest, toggleModal } from "@/redux/modal/slice";
+import { clearRequest, setEventData, toggleModal } from "@/redux/modal/slice";
 
 const Calendar = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
@@ -20,36 +20,31 @@ const Calendar = () => {
   const token = useSelector(selectToken);
   const { t } = useTranslation();
   const language = useSelector(selectLanguage);
-  // const dispatch = useDispatch();
-
-  // const title = useSelector(selectRequest);
+  const dispatch = useDispatch();
 
   const handleDateSelect = async (selectInfo) => {
     const { start, end } = selectInfo;
-    // dispatch(toggleModal());
 
-     await const title = () => {
-      return useSelector(selectRequest);
-    };
+    dispatch(setEventData({ start, end }));
 
-    if (title()) {
-      try {
-        await myAPI.post(
-          "calendar/event",
-          { start, end, title },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        alert(t("request sent"));
-      } catch (error) {
-        console.error(error);
-      } 
-    }
+    dispatch(toggleModal());
 
-    
+    // if (title) {
+    //   try {
+    //     await myAPI.post(
+    //       "calendar/event",
+    //       { start, end, title },
+    //       {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`,
+    //         },
+    //       }
+    //     );
+    //     alert(t("request sent"));
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
   };
 
   const renderEventContent = (eventInfo) => {
@@ -59,7 +54,7 @@ const Calendar = () => {
       <div>
         (
         {relatedEvent === decodedToken.email ? (
-          <span>{eventInfo.event.title}</span>
+          <span >{eventInfo.event.title}</span>
         ) : (
           <span className="closed">{t("timeslot unavailabe")}</span>
         )}

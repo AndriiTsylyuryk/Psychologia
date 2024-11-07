@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const RegisterForm = () => {
   const { t } = useTranslation(); 
   const dispatch = useDispatch<AppDispatch>();
-
+  const navigate = useNavigate();
   const schema = Yup.object({
     name: Yup.string()
       .required(t("required field"))
@@ -45,6 +45,7 @@ const RegisterForm = () => {
       .then(() => {
         toast.success(t("registration successful"));
         resetForm();
+        navigate("/about");
       })
       .catch((error) => {
         if (error === "Email in use") {

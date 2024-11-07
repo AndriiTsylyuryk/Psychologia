@@ -30,6 +30,7 @@
   background-color: var(--color-secondary);
   color: var(--color-text);
 }
+
 [data-theme="dark"] .input {
   background-color: var(--color-dark-bg);
   color: var(--color-secondary);

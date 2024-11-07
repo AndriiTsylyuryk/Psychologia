@@ -61,5 +61,10 @@
   "price for Europe": "Price for Europe - 10 EUR",
   "press here to make an appointment" : "Press here to make an appointment!",
   "day":"day",
-  "week":"week"
+  "week":"week",
+  "Describe details...": "Describe details...",
+  "send":"Send",
+  "sending request...": "Sending request...",
+  "request sent successfully!":"Request sent successfully!",
+  "request failed": "Request failed"
 }
