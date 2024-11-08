@@ -46,8 +46,6 @@ export const refreshThunk = createAsyncThunk("refresh", async (_, thunkAPI) => {
   try {
     const newToken = await myAPI.post(
       "auth/refresh",
-      {},
-      { withCredentials: true }
     );
 
     setToken(newToken.data.accessToken);

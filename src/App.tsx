@@ -25,25 +25,29 @@ import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 import Prices from "./pages/Prices/Prices";
 
 function App() {
+  const dispatch: AppDispatch = useDispatch();
   const newToken = useSelector(selectToken);
 
   useEffect(() => {
+    let intervalId;
     const startTokenRefreshInterval = () => {
-      setInterval(async () => {
+      intervalId = setInterval(async () => {
         try {
           dispatch(refreshThunk());
         } catch (error) {
           console.error("Failed to refresh token", error);
         }
-      }, 0.15 * 60 * 1000);
+      }, 0.14 * 60 * 1000);
+      return intervalId;
     };
 
     if (newToken) {
       startTokenRefreshInterval();
     }
-  }, [newToken]);
-
-  const dispatch: AppDispatch = useDispatch();
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [newToken, dispatch]);
 
   useEffect(() => {
     dispatch(getMeThunk());
