@@ -10,10 +10,10 @@ import About from "./pages/About/About";
 import Calendar from "./pages/Calendar/Calendar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeThunk } from "./redux/auth/operations";
+import { getMeThunk, refreshThunk } from "./redux/auth/operations";
 import { PrivateRoute } from "./Routes/PrivateRoute";
 import { PublicRoute } from "./Routes/PublicRoute";
-import { selectIsRefreshing } from "./redux/auth/selector";
+import { selectIsRefreshing, selectToken } from "./redux/auth/selector";
 import Loader from "./components/Loader/Loader";
 import "./index.css";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
@@ -25,6 +25,24 @@ import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 import Prices from "./pages/Prices/Prices";
 
 function App() {
+  const newToken = useSelector(selectToken);
+
+  useEffect(() => {
+    const startTokenRefreshInterval = () => {
+      setInterval(async () => {
+        try {
+          dispatch(refreshThunk());
+        } catch (error) {
+          console.error("Failed to refresh token", error);
+        }
+      }, 0.15 * 60 * 1000);
+    };
+
+    if (newToken) {
+      startTokenRefreshInterval();
+    }
+  }, [newToken]);
+
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
@@ -35,72 +53,81 @@ function App() {
 
   const isDark = useSelector(selectIsLight);
 
-  return (<div className='appContainer' data-theme={isDark ? "dark" : "light"}>
-    <div className="container" >
-      {isRefreshing ? (
-        <Loader />
-      ) : (
-        <div>
-          <Toaster containerStyle={{ top: 60 }} />
-          <BurgerMenu />
-          <AppBar />
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
+  return (
+    <div className="appContainer" data-theme={isDark ? "dark" : "light"}>
+      <div className="container">
+        {isRefreshing ? (
+          <Loader />
+        ) : (
+          <div>
+            <Toaster containerStyle={{ top: 60 }} />
+            <BurgerMenu />
+            <AppBar />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route
+                  path="about"
+                  element={
+                    <PrivateRoute>
+                      <About />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="calendar"
+                  element={
+                    <PrivateRoute>
+                      <Calendar />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="refresh"
+                  element={
+                    <PrivateRoute>
+                      <Calendar />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="prices"
+                  element={
+                    <PrivateRoute>
+                      <Prices />
+                    </PrivateRoute>
+                  }
+                />
+                <Route path="*" element={<NotFound />} />
+              </Route>
               <Route
-                path="about"
+                path="/login"
                 element={
-                  <PrivateRoute>
-                    <About />
-                  </PrivateRoute>
+                  <PublicRoute>
+                    <Login />
+                  </PublicRoute>
                 }
               />
               <Route
-                path="calendar"
+                path="/google/callback"
                 element={
-                  <PrivateRoute>
-                    <Calendar />
-                  </PrivateRoute>
+                  <PublicRoute>
+                    <GoogleCallback />
+                  </PublicRoute>
                 }
               />
               <Route
-                path="prices"
+                path="/register"
                 element={
-                  <PrivateRoute>
-                    <Prices />
-                  </PrivateRoute>
+                  <PublicRoute>
+                    <Register />
+                  </PublicRoute>
                 }
               />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route
-              path="/login"
-              element={
-                <PublicRoute>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/google/callback"
-              element={
-                <PublicRoute>
-                  <GoogleCallback />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute>
-                  <Register />
-                </PublicRoute>
-              }
-            />
-          </Routes>
-        </div>
-      )}
-    </div>
+            </Routes>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

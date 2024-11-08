@@ -5,6 +5,7 @@ import {
   loginThunk,
   loginWithGoogle,
   logoutThunk,
+  refreshThunk,
   registerThunk,
 } from "./operations";
 import { AuthState } from "../authTypes/authTypes";
@@ -54,7 +55,6 @@ const slice = createSlice({
         state.accessToken = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        // state.user.email = action.payload.data.email;
       })
       .addCase(loginWithGoogle.pending, (state, action) => {
         state.isLoggedIn = false;
@@ -66,9 +66,8 @@ const slice = createSlice({
       .addCase(getMeThunk.fulfilled, (state, action) => {
         if (action.payload) {
           state.isLoggedIn = true;
-          state.isRefreshing = false; 
+          state.isRefreshing = false;
         }
-        
       })
       .addCase(getMeThunk.pending, (state) => {
         state.isRefreshing = true;
@@ -81,6 +80,9 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.pending, (state) => {
         state.isRefreshing = true;
+      })
+      .addCase(refreshThunk.fulfilled, (state, action) => {
+        state.accessToken = action.payload;
       });
   },
 });

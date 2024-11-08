@@ -2,7 +2,8 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 12px;
+  /* justify-content: space-around; */
   align-items: center;
   height: 100vh;
 }

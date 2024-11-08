@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clearToken, myAPI, setToken } from "../../config/API";
+import { clearToken, myAPI, refreshToken, setToken } from "../../config/API";
 import { RootState, UserType } from "../store";
 import { setTheme } from "../burger/slice";
 import { setLanguage } from "../language/slice";
@@ -41,6 +41,22 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
+
+export const refreshThunk = createAsyncThunk("refresh", async (_, thunkAPI) => {
+  try {
+    const newToken = await myAPI.post(
+      "auth/refresh",
+      {},
+      { withCredentials: true }
+    );
+
+    setToken(newToken.data.accessToken);
+    // console.log(newToken)
+    return newToken;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data.error);
+  }
+});
 
 export const getLoginWithGoogle = createAsyncThunk(
   "getLoginWithGoogle",

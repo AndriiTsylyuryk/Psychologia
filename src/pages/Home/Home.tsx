@@ -5,6 +5,7 @@ import ReviewSlider from "@/components/Slider/ReviewSlider";
 import { LiaInstagram } from "react-icons/lia";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import Accordeon from "@/components/Accordeon/Accordeon";
 
 const Home = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -21,6 +22,7 @@ const Home = () => {
           <div className={style.heroImg}></div>
           {/* </div> */}
           {/* <div className={style.reviews}> */}
+          <Accordeon/>
           <ReviewSlider />
           <div className={style.media}>
             <a
