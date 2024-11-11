@@ -56,7 +56,7 @@ const Accordeon = () => {
           <p>{t("searching for life goals and new ideas.")}</p>
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ backgroundColor: "transparent",color: "inherit" }}>
+      <Accordion sx={{ backgroundColor: "transparent", color: "inherit" }}>
         <AccordionSummary
           sx={{ backgroundColor: "var(--color-accordeon)" }}
           expandIcon={<ArrowDownwardIcon />}
@@ -79,7 +79,7 @@ const Accordeon = () => {
           backgroundColor: "transparent",
           borderBottomLeftRadius: "32px",
           borderBottomRightRadius: "32px",
-          color: "inherit"
+          color: "inherit",
         }}
       >
         <AccordionSummary
@@ -96,7 +96,7 @@ const Accordeon = () => {
             {t("conflicts, beliefs, fears")}
           </p>
         </AccordionSummary>
-        <AccordionDetails sx={{ background: "var(--color-dark-bg)" }}>
+        <AccordionDetails >
           <ul>
             <li>{t("internal and external conflicts.")}</li>
             <li>
