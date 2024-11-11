@@ -12,7 +12,7 @@ const Accordeon = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className={style.accordeonContainer}>
       <Accordion
         sx={{
           "&:first-of-type": {
@@ -20,6 +20,7 @@ const Accordeon = () => {
             borderTopRightRadius: "32px",
           },
           backgroundColor: "transparent",
+          color: "inherit",
         }}
       >
         <AccordionSummary
@@ -42,7 +43,7 @@ const Accordeon = () => {
           </p>
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ backgroundColor: "transparent",}}>
+      <Accordion sx={{ backgroundColor: "transparent", color: "inherit" }}>
         <AccordionSummary
           sx={{ backgroundColor: "var(--color-accordeon)" }}
           expandIcon={<ArrowDownwardIcon />}
@@ -55,7 +56,7 @@ const Accordeon = () => {
           <p>{t("searching for life goals and new ideas.")}</p>
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ backgroundColor: "transparent",}}>
+      <Accordion sx={{ backgroundColor: "transparent",color: "inherit" }}>
         <AccordionSummary
           sx={{ backgroundColor: "var(--color-accordeon)" }}
           expandIcon={<ArrowDownwardIcon />}
@@ -78,6 +79,7 @@ const Accordeon = () => {
           backgroundColor: "transparent",
           borderBottomLeftRadius: "32px",
           borderBottomRightRadius: "32px",
+          color: "inherit"
         }}
       >
         <AccordionSummary
@@ -85,7 +87,6 @@ const Accordeon = () => {
             backgroundColor: "var(--color-accordeon)",
             borderBottomLeftRadius: "32px",
             borderBottomRightRadius: "32px",
-            
           }}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"

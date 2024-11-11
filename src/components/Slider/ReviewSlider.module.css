@@ -1,22 +1,21 @@
 .swiper {
+  
   max-width:  250px;
   height: 150px;
   margin: 0px;
 }
 
-/* ReviewCarouse.module.css */
+
 .swiperslide {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100%; Залежить від розміру контейнера Swiper */
-  font-size: 14px; /* Розмір шрифту */
-  /* color: #000000;  */
-  /* background-color: #ffffff;  */
-  padding: 20px;
-  text-align: center; /* Вирівнювання тексту */
-  border-radius: 10px; /* Закруглені кути */
+  
+  font-size: 14px; 
+  
+  text-align: center; 
+  border-radius: 10px; 
 }
 
 .swiperslide p {
