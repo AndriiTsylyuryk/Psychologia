@@ -13,14 +13,24 @@ const Accordeon = () => {
 
   return (
     <div>
-      <Accordion  defaultExpanded={true}>
+      <Accordion
+        sx={{
+          "&:first-of-type": {
+            borderTopLeftRadius: "32px",
+            borderTopRightRadius: "32px",
+          },
+          backgroundColor: "transparent",
+        }}
+      >
         <AccordionSummary
-          sx={{ backgroundColor: "#accef0" }}
-          className={style.accordeonSummary}
+          sx={{
+            backgroundColor: "var(--color-accordeon)",
+            borderTopLeftRadius: "32px",
+            borderTopRightRadius: "32px",
+          }}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
-         
         >
           <p className={style.accordeonText}>{t("emotional states")}</p>
         </AccordionSummary>
@@ -32,9 +42,9 @@ const Accordeon = () => {
           </p>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion sx={{ backgroundColor: "transparent",}}>
         <AccordionSummary
-          sx={{ backgroundColor: "#accef0" }}
+          sx={{ backgroundColor: "var(--color-accordeon)" }}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -45,9 +55,9 @@ const Accordeon = () => {
           <p>{t("searching for life goals and new ideas.")}</p>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion sx={{ backgroundColor: "transparent",}}>
         <AccordionSummary
-          sx={{ backgroundColor: "#accef0" }}
+          sx={{ backgroundColor: "var(--color-accordeon)" }}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -58,9 +68,25 @@ const Accordeon = () => {
           <p>{t("repetitive behaviors or reactions that hinder.")}</p>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          "&:last-of-type": {
+            borderBottomLeftRadius: "32px",
+            borderBottomRightRadius: "32px",
+            backfaceVisibility: "transparent",
+          },
+          backgroundColor: "transparent",
+          borderBottomLeftRadius: "32px",
+          borderBottomRightRadius: "32px",
+        }}
+      >
         <AccordionSummary
-          sx={{ backgroundColor: "#accef0" }}
+          sx={{
+            backgroundColor: "var(--color-accordeon)",
+            borderBottomLeftRadius: "32px",
+            borderBottomRightRadius: "32px",
+            
+          }}
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -69,7 +95,7 @@ const Accordeon = () => {
             {t("conflicts, beliefs, fears")}
           </p>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ background: "var(--color-dark-bg)" }}>
           <ul>
             <li>{t("internal and external conflicts.")}</li>
             <li>

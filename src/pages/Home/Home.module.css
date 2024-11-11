@@ -5,7 +5,7 @@
   gap: 12px;
   /* justify-content: space-around; */
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .h1 {
@@ -23,13 +23,19 @@
 .heroImg {
   background-image: url(../../img/DSC05500.jpeg);
   width: 280px;
-  height: 232px;
+  min-height: 232px;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 32px;
   z-index: 1;
   background-position: center;
 }
+.aboutText{
+  font-size: 16px;
+  text-align: center;
+  /* margin-bottom: 24px; */
+}
+
 
 .icon {
   color: var(--color-text);

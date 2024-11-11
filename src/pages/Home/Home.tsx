@@ -20,6 +20,11 @@ const Home = () => {
             <span className={style.span}>{t("i am your psychologist")}</span>
           </div>
           <div className={style.heroImg}></div>
+          <p className={style.aboutText}>
+        {t(
+          "A beginner psychologist and certified NLP (Neuro-Linguistic Programming) practitioner. I am currently in my fifth year at Sumy State Pedagogical University named after A.S. Makarenko."
+        )}
+      </p>
           {/* </div> */}
           {/* <div className={style.reviews}> */}
           <Accordeon/>
