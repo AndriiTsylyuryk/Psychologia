@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./RegisterForm.module.css";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "@/redux/auth/operations";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { AppDispatch } from "@/redux/store";
 import toast from "react-hot-toast";

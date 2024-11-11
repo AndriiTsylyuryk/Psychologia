@@ -16,10 +16,10 @@ const Register = () => {
     <div className={styles.container}>
        <div className={styles.overlay}></div>
       {/* {<AppBar/>} */}
-      <Fade>
+      {/* <Fade> */}
       {/* <h2 className={styles.title}>Реєстрація</h2> */}
       <RegisterForm/>
-      </Fade>
+      {/* </Fade> */}
     </div>
   );
 };
