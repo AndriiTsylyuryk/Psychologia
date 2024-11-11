@@ -9,11 +9,11 @@ const GoogleCallback = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const code = urlParams.get("code");
-    const { t } = useTranslation();
     if (code) {
       dispatch(loginWithGoogle(code))
         .unwrap()
