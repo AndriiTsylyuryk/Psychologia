@@ -37,7 +37,7 @@ function App() {
         } catch (error) {
           console.error("Failed to refresh token", error);
         }
-      }, 0.14 * 60 * 1000);
+      }, 14 * 60 * 1000);
       return intervalId;
     };
 

@@ -44,12 +44,9 @@ export const loginThunk = createAsyncThunk(
 
 export const refreshThunk = createAsyncThunk("refresh", async (_, thunkAPI) => {
   try {
-    const newToken = await myAPI.post(
-      "auth/refresh",
-    );
+    const newToken = await myAPI.post("auth/refresh");
 
     setToken(newToken.data.accessToken);
-    // console.log(newToken)
     return newToken;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.error);
