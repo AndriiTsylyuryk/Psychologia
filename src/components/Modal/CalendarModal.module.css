@@ -4,7 +4,6 @@
   align-items: center;
 }
 
-
 .form {
   display: flex;
   flex-direction: column;
@@ -13,16 +12,17 @@
   background-color: var(--color-secondary);
   border-radius: 10px;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
- 
 }
 
 [data-theme="dark"] .form {
   background-color: var(--color-primary);
 }
 
-
-
-
+.closeBtn {
+  position: relative;
+  left: 220px;
+  top: 25px;
+}
 
 .input {
   width: 100%;
@@ -40,7 +40,6 @@
   color: var(--color-secondary);
 }
 
-
 .button {
   padding: 10px 20px;
   border: none;
@@ -52,7 +51,6 @@
   font-size: 16px;
   margin-bottom: 10px;
 }
-
 
 .error {
   color: red;

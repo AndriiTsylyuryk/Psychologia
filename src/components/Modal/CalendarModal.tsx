@@ -11,6 +11,7 @@ import { myAPI } from "@/config/API";
 import { selectToken } from "@/redux/auth/selector";
 import { selectIsLight } from "@/redux/burger/selectors";
 import toast from "react-hot-toast";
+import { IoMdClose } from "react-icons/io";
 
 const CalendarModal = () => {
   const { t } = useTranslation();
@@ -54,36 +55,42 @@ const CalendarModal = () => {
 
   return (
     <div>
-      <Modal
-        open={isOpen}
-        className={style.modalContentMain}
-        onClose={handleClose}
-      >
-        <Box className={style.modalContent}>
-          <Formik
-            initialValues={{ request: "" }}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            <Form className={style.form} data-theme={isDark ? "dark" : "light"}>
-              <Field
-                className={style.input}
-                name="request"
-                type="text"
-                placeholder={t("Describe details...")}
-              />
-              <ErrorMessage
-                name="request"
-                component="div"
-                className={style.error}
-              />
-              <button className={style.button} type="submit">
-                {t("send")}
-              </button>
-            </Form>
-          </Formik>
-        </Box>
-      </Modal>
+      <div>
+        <Modal
+          open={isOpen}
+          className={style.modalContentMain}
+          onClose={handleClose}
+        >
+          <Box className={style.modalContent}>
+            <IoMdClose className={style.closeBtn} onClick={handleClose} />
+            <Formik
+              initialValues={{ request: "" }}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              <Form
+                className={style.form}
+                data-theme={isDark ? "dark" : "light"}
+              >
+                <Field
+                  className={style.input}
+                  name="request"
+                  type="text"
+                  placeholder={t("Describe details...")}
+                />
+                <ErrorMessage
+                  name="request"
+                  component="div"
+                  className={style.error}
+                />
+                <button className={style.button} type="submit">
+                  {t("send")}
+                </button>
+              </Form>
+            </Formik>
+          </Box>
+        </Modal>
+      </div>
     </div>
   );
 };
