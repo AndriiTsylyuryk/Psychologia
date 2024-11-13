@@ -11,6 +11,8 @@ import { AppDispatch } from "@/redux/store";
 YupPassword(Yup);
 import toast from "react-hot-toast";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
+import { TbHandClick } from "react-icons/tb";
+
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -98,6 +100,7 @@ const LoginForm = () => {
               <p className={style.text}>{t("no account?")}</p>
               <Link to="/register" className={style.link}>
                 {t("click")}
+                <TbHandClick size={16}/>
               </Link>
             </div>
           </Form>

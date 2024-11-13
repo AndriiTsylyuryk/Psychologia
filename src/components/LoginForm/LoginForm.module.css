@@ -1,4 +1,4 @@
-.formContainer{
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,6 @@
 
 [data-theme="dark"] .form {
   background-color: var(--color-primary);
- 
 }
 
 .input {
@@ -65,6 +64,8 @@
   color: var(--color-text);
   text-decoration: none;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .registration {
@@ -77,8 +78,8 @@
 .form,
 .text,
 .link {
-  position: relative; /* Для відображення поверх накладеного шару */
-  z-index: 2; /* Забезпечуємо, що текст поверх інших елементів */
+  position: relative; 
+  z-index: 2; 
 }
 
 .error {

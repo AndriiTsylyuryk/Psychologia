@@ -13,6 +13,7 @@ import { selectLanguage } from "@/redux/language/selector";
 import CalendarModal from "../Modal/CalendarModal";
 import { selectRequest } from "@/redux/modal/selectors";
 import { clearRequest, setEventData, toggleModal } from "@/redux/modal/slice";
+import { TiLockClosedOutline } from "react-icons/ti";
 
 const Calendar = () => {
   const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
@@ -28,38 +29,22 @@ const Calendar = () => {
     dispatch(setEventData({ start, end }));
 
     dispatch(toggleModal());
-
-    // if (title) {
-    //   try {
-    //     await myAPI.post(
-    //       "calendar/event",
-    //       { start, end, title },
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer ${token}`,
-    //         },
-    //       }
-    //     );
-    //     alert(t("request sent"));
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
   };
 
   const renderEventContent = (eventInfo) => {
     const relatedEvent = eventInfo.event._def.extendedProps.description;
     const decodedToken = jwtDecode(token);
     return (
-      <div>
-        (
+      <span>
         {relatedEvent === decodedToken.email ? (
-          <span >{eventInfo.event.title}</span>
+          <span>{eventInfo.event.title}</span>
         ) : (
-          <span className="closed">{t("timeslot unavailabe")}</span>
+          <span className="closed">
+            <TiLockClosedOutline size={20}/>
+            {t("timeslot unavailabe")}
+          </span>
         )}
-        )
-      </div>
+      </span>
     );
   };
 
@@ -67,8 +52,9 @@ const Calendar = () => {
     <div>
       <FullCalendar
         plugins={[timeGridPlugin, googleCalendarPlugin, interactionPlugin]}
-        initialView="timeGridDay"
+        initialView={window.innerWidth < 768 ? "timeGridDay" : "timeGridWeek"}
         height={600}
+        // eventColor="red"
         headerToolbar={{ center: "timeGridWeek,timeGridDay" }}
         nowIndicator={true}
         timeZone="local"
@@ -83,8 +69,10 @@ const Calendar = () => {
         select={handleDateSelect}
         eventClick={(eventInfo) => {
           eventInfo.jsEvent.preventDefault();
+          console.log(eventInfo)
         }}
         eventContent={renderEventContent}
+        
       />
       <CalendarModal />
     </div>

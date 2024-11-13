@@ -8,11 +8,11 @@ import * as Yup from "yup";
 import { AppDispatch } from "@/redux/store";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-
+import { TbHandClick } from "react-icons/tb";
 const RegisterForm = () => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const schema = Yup.object({
     name: Yup.string()
       .required(t("required field"))
@@ -45,7 +45,7 @@ const RegisterForm = () => {
       .then(() => {
         toast.success(t("registration successful"));
         resetForm();
-        navigate("/about");
+        // navigate("/about");
       })
       .catch((error) => {
         if (error === "Email in use") {
@@ -93,9 +93,12 @@ const RegisterForm = () => {
           </button>
           <div className={styles.register}>
             <p className={styles.text}>{t("already have an account?")}</p>
-            <Link className={styles.link} to="/login">
-              {t("click")}
-            </Link>
+            
+              <Link className={styles.link} to="/login">
+                {t("click")}
+                <TbHandClick  size={17}/>
+              </Link>
+            
           </div>
         </Form>
       </Formik>

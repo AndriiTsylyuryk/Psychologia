@@ -1,9 +1,27 @@
 .fc-toolbar {
   display: flex;
   flex-direction: column;
-gap: 6px;
+  gap: 6px;
+}
+
+.fc-event {
+  border-color: rgb(37, 135, 54);
+}
+
+.fc-event-main {
+  background-color: rgba(96, 159, 83, 0.697);
+  /* border-radius: 10px; */
+  /* border: none; */
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed{
-  color: rgb(255, 145, 0);
+  font-size: 12px;
+  color: rgb(217, 231, 16);
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
