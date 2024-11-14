@@ -13,7 +13,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
  [data-theme="dark"] {
   background-color: var(--color-dark-bg); 
