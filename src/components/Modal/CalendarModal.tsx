@@ -43,6 +43,11 @@ const CalendarModal = () => {
           loading: t("sending request..."),
           success: t("request sent successfully!"),
           error: t("request failed"),
+        },
+        {
+          style: {
+            bottom: 120,
+          },
         }
       );
     }
