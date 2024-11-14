@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import styles from "./RegisterForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "@/redux/auth/operations";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
@@ -9,6 +9,10 @@ import { AppDispatch } from "@/redux/store";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { TbHandClick } from "react-icons/tb";
+import { selectShowPassword } from "@/redux/password/selector";
+import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
+import { togglePasswordVisibility } from "@/redux/password/slice";
+
 const RegisterForm = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
@@ -53,6 +57,10 @@ const RegisterForm = () => {
         }
       });
   };
+  const showPassword = useSelector(selectShowPassword);
+  const handleTogglePassword = () => {
+    dispatch(togglePasswordVisibility());
+  };
 
   return (
     <div>
@@ -79,9 +87,20 @@ const RegisterForm = () => {
           <Field
             className={styles.input}
             name="password"
-            type="password"
+            type={showPassword ? "password" : "text"}
             placeholder={t("enter your password")}
           />
+          {showPassword ? (
+            <HiOutlineEye
+              className={styles.eyeBtn}
+              onClick={handleTogglePassword}
+            />
+          ) : (
+            <HiOutlineEyeOff
+              className={styles.eyeBtn}
+              onClick={handleTogglePassword}
+            />
+          )}
           <ErrorMessage
             name="password"
             component="div"
@@ -93,12 +112,11 @@ const RegisterForm = () => {
           </button>
           <div className={styles.register}>
             <p className={styles.text}>{t("already have an account?")}</p>
-            
-              <Link className={styles.link} to="/login">
-                {t("click")}
-                <TbHandClick  size={17}/>
-              </Link>
-            
+
+            <Link className={styles.link} to="/login">
+              {t("click")}
+              <TbHandClick size={17} />
+            </Link>
           </div>
         </Form>
       </Formik>

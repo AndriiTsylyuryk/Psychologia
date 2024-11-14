@@ -52,11 +52,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--color-text);
   }
   
   .link {
-    color: var(--color-text);
     text-decoration: none;
     font-weight: bold;
     display: flex;
@@ -78,4 +76,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  .eyeBtn {
+    color: var(--color-text);
+    position: relative;
+    left: 85px;
+    bottom: 39px;
   }

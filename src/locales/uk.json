@@ -66,5 +66,6 @@
   "send": "Надіслати",
   "sending request...": "Надсилаю запит...",
   "request sent successfully!": "Успіх, онови сторінку!",
-  "request failed": "Помилка"
+  "request failed": "Помилка",
+  "forgot password?": "Забули пароль?"
 }

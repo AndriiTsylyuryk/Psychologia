@@ -3,7 +3,7 @@ import { selectIsLoggedIn } from "@/redux/auth/selector";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import style from "./LoginForm.module.css";
@@ -12,13 +12,18 @@ YupPassword(Yup);
 import toast from "react-hot-toast";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import { TbHandClick } from "react-icons/tb";
-
+import { HiOutlineEye } from "react-icons/hi";
+import { selectShowPassword } from "@/redux/password/selector";
+import { HiOutlineEyeOff } from "react-icons/hi";
+import { togglePasswordVisibility } from "@/redux/password/slice";
 
 const LoginForm = () => {
   const { t } = useTranslation();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
+
+  const showPassword = useSelector(selectShowPassword);
 
   const schema = Yup.object({
     email: Yup.string()
@@ -60,6 +65,10 @@ const LoginForm = () => {
     return null;
   }
 
+  const handleTogglePassword = () => {
+    dispatch(togglePasswordVisibility());
+  };
+
   return (
     <div className={style.formContainer}>
       <Formik
@@ -80,27 +89,41 @@ const LoginForm = () => {
               component="div"
               className={style.error}
             />
-
-            <Field
-              name="password"
-              type="password"
-              placeholder={t("enter your password")}
-              className={style.input}
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className={style.error}
-            />
+            <div className={style.passwordSection}>
+              <Field
+                name="password"
+                type={showPassword ? "password" : "text"}
+                placeholder={t("enter your password")}
+                className={style.input}
+              />
+              <Link to="/reset-password">
+                <p className={style.passwordText}>{t("forgot password?")}</p>
+              </Link>
+              {showPassword ? (
+                <HiOutlineEye
+                  className={style.eyeBtn}
+                  onClick={handleTogglePassword}
+                />
+              ) : (
+                <HiOutlineEyeOff
+                  className={style.eyeBtn}
+                  onClick={handleTogglePassword}
+                />
+              )}
+              <ErrorMessage
+                name="password"
+                component="div"
+                className={style.error}
+              />
+            </div>
             <button type="submit" className={style.button}>
               {t("sign in")}
             </button>
-
             <div className={style.registration}>
               <p className={style.text}>{t("no account?")}</p>
               <Link to="/register" className={style.link}>
                 {t("click")}
-                <TbHandClick size={16}/>
+                <TbHandClick size={16} />
               </Link>
             </div>
           </Form>

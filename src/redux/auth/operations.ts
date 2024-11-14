@@ -111,3 +111,15 @@ export const getMeThunk = createAsyncThunk<
     return thunkAPI.rejectWithValue(error);
   }
 });
+
+export const resetThunk = createAsyncThunk(
+  "reset",
+  async (email: string, thunkAPI) => {
+    try {
+      const  data  = await myAPI.post("auth/request-reset-email", email);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error);
+    }
+  }
+);

@@ -23,6 +23,8 @@ import { selectIsLight } from "./redux/burger/selectors";
 import { Toaster } from "react-hot-toast";
 import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 import Prices from "./pages/Prices/Prices";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
+
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -109,6 +111,14 @@ function App() {
                 element={
                   <PublicRoute>
                     <Login />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/reset-password"
+                element={
+                  <PublicRoute>
+                    <ResetPassword/>
                   </PublicRoute>
                 }
               />

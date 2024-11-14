@@ -6,12 +6,9 @@
   padding: 8px 16px;
   border: 2px solid var(--color-primary); 
   background-color: transparent; 
-  color: var(--color-primary); 
+  /* color: var(--color-primary);  */
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 10px;
 }
 
-.button:hover {
-  background-color: white; 
-  color: black; }

@@ -28,9 +28,6 @@
   .name {
     font-size: 18px;
   }
-}
-
-@media screen and (min-width: 1280px) {
   .headerContainer {
     gap: 0px;
     justify-content: space-between;
@@ -41,5 +38,10 @@
     gap: 24px;
     align-items: center;
   }
-  
+}
+
+@media screen and (min-width: 1280px) {
+  .navigation {
+    font-size: 18px;
+  }
 }

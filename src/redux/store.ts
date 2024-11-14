@@ -16,6 +16,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { AuthState } from "./authTypes/authTypes";
 import { modalReducer } from "./modal/slice";
+import { passwordReducer } from "./password/slice";
 
 const persistConfig = {
   key: "root",
@@ -30,7 +31,8 @@ export const store = configureStore({
     burger: burgerReducer,
     theme: persistReducer(persistConfig, themeReducer),
     language: persistReducer(persistConfig, languageReducer),
-    modal: modalReducer
+    modal: modalReducer,
+    password: passwordReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
