@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  showPassword: false,
+  isPasswordHidden: true,
 };
 
 const slice = createSlice({
@@ -9,7 +9,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     togglePasswordVisibility: (state) => {
-      state.showPassword = !state.showPassword;
+      state.isPasswordHidden = !state.isPasswordHidden;
     },
   },
 });
