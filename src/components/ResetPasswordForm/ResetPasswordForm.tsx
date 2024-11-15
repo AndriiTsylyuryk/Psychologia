@@ -21,9 +21,10 @@ const ResetPasswordForm = () => {
     email: "",
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (value, { resetForm }) => {
+    console.log(value.email)
     toast.promise(
-      dispatch(resetThunk(values.email))
+      dispatch(resetThunk(value.email))
         .unwrap()
         .then(() => resetForm())
         .catch((e) => {

@@ -1,1 +1,1 @@
-export const selectShowPassword = (state) => state.password.showPassword;
+export const selectShowPassword = (state) => state.password.isPasswordHidden;
