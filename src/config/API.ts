@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export const myAPI = axios.create({
   baseURL: "http://localhost:3000/",
-  // withCredentials: true,
+  withCredentials: true,
 });
 
 export const setToken = (token) => {
