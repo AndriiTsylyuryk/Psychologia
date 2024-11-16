@@ -67,5 +67,8 @@
   "sending request...": "Надсилаю запит...",
   "request sent successfully!": "Успіх, онови сторінку!",
   "request failed": "Помилка",
-  "forgot password?": "Забули пароль?"
+  "forgot password?": "Забули пароль?",
+  "request sent successfully, await for email!": "Успіх, очікуйте емейл",
+  "enter new password": "Введіть новий пароль...",
+  "password updated": "Пароль оновлено!"
 }

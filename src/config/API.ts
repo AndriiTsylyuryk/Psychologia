@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 
 export const myAPI = axios.create({
-  baseURL: "https://psychologia-back-end.onrender.com/",
-  withCredentials: true,
+  baseURL: "http://localhost:3000/",
+  // withCredentials: true,
 });
 
 export const setToken = (token) => {

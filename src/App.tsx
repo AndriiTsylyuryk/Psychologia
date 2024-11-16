@@ -24,6 +24,8 @@ import { Toaster } from "react-hot-toast";
 import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 import Prices from "./pages/Prices/Prices";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import NewPasswordForm from "./components/NewPasswordForm/NewPasswordForm";
+import NewPassword from "./pages/NewPasswordForm/NewPasswordForm";
 
 
 function App() {
@@ -115,10 +117,18 @@ function App() {
                 }
               />
               <Route
-                path="/reset-password"
+                path="/reset-password-request"
                 element={
                   <PublicRoute>
                     <ResetPassword/>
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/reset-password"
+                element={
+                  <PublicRoute>
+                    <NewPassword/>
                   </PublicRoute>
                 }
               />

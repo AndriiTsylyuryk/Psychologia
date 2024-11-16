@@ -27,10 +27,10 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerThunk.fulfilled, (state, action) => {
-        state.accessToken = action.payload.data.accessToken;
-        state.isLoggedIn = true;
+        // state.accessToken = action.payload.data.accessToken;
+        // state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.user.email = action.payload.data.email;
+        // state.user.email = action.payload.data.email;
       })
       .addCase(registerThunk.pending, (state, action) => {
         state.isRefreshing = true;

@@ -67,5 +67,8 @@
   "sending request...": "Sending request...",
   "request sent successfully!": "Request sent successfully!",
   "request failed": "Request failed",
-  "forgot password?": "Forgot password?"
+  "forgot password?": "Forgot password?",
+  "request sent successfully, await for email!": "Request sent successfully, await for email!",
+  "enter new password": "Enter new password...",
+  "password updated": "Password updated!"
 }

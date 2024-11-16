@@ -115,9 +115,21 @@ export const getMeThunk = createAsyncThunk<
 export const resetThunk = createAsyncThunk(
   "reset",
   async (email: string, thunkAPI) => {
+    console.log(email);
     try {
-      const  {data} = await myAPI.post("auth/request-reset-email", email);
-      console.log(email)
+      await myAPI.post("auth/request-reset-email", { email });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error);
+    }
+  }
+);
+
+export const sendNewPassword = createAsyncThunk(
+  "newPassword",
+  async (payload, thunkAPI) => {
+    console.log(payload);
+    try {
+      const { data } = await myAPI.post("auth/reset-password", payload);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.error);

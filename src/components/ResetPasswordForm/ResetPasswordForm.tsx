@@ -6,10 +6,12 @@ import style from "./ResetPasswordForm.module.css";
 import { useDispatch } from "react-redux";
 import { resetThunk } from "@/redux/auth/operations";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ResetPasswordForm = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const schema = Yup.object({
     email: Yup.string()
@@ -22,18 +24,16 @@ const ResetPasswordForm = () => {
   };
 
   const handleSubmit = (value, { resetForm }) => {
-    console.log(value.email)
     toast.promise(
       dispatch(resetThunk(value.email))
         .unwrap()
-        .then(() => resetForm())
+        .then(() => resetForm(), navigate("/"))
         .catch((e) => {
           console.error(e);
-          throw e;
         }),
       {
         loading: t("sending request..."),
-        success: t("request sent successfully!"),
+        success: t("request sent successfully, await for email!"),
         error: t("request failed"),
       }
     );

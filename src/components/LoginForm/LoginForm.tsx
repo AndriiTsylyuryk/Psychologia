@@ -96,7 +96,7 @@ const LoginForm = () => {
                 placeholder={t("enter your password")}
                 className={style.input}
               />
-              <Link to="/reset-password">
+              <Link to="/reset-password-request">
                 <p className={style.passwordText}>{t("forgot password?")}</p>
               </Link>
               {showPassword ? (
