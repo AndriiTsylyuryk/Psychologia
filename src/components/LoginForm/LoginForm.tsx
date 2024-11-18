@@ -50,7 +50,7 @@ const LoginForm = () => {
       .then(() => {
         resetForm();
         toast.success(t("you have successfully logged in"));
-        navigate("/about");
+        navigate("/calendar");
       })
       .catch((error) => {
         if (error === "Wrong password") {

@@ -24,9 +24,10 @@ import { Toaster } from "react-hot-toast";
 import GoogleCallback from "./pages/GoogleCallback/GoogleCallback";
 import Prices from "./pages/Prices/Prices";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
-import NewPasswordForm from "./components/NewPasswordForm/NewPasswordForm";
-import NewPassword from "./pages/NewPasswordForm/NewPasswordForm";
 
+import NewPassword from "./pages/NewPasswordForm/NewPasswordForm";
+import introJs from "intro.js";
+import "intro.js/introjs.css";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -58,8 +59,26 @@ function App() {
   }, [dispatch]);
 
   const isRefreshing = useSelector(selectIsRefreshing);
-
   const isDark = useSelector(selectIsLight);
+
+  // useEffect(() => {
+  //   introJs()
+  //     .setOptions({
+  //       steps: [
+  //         {
+  //           element: ".bm-burger-button",
+  //           intro: "Тут знаходиться меню",
+  //           offset: {
+  //             top: 20,   // Відступ знизу підказки
+  //             left: 30,  // Відступ зліва від елемента
+  //           }
+  //         },
+  //       ],
+  //       showProgress: true,
+  //       disableInteraction: true,
+  //     })
+  //     .start();
+  // }, []);
 
   return (
     <div className="appContainer" data-theme={isDark ? "dark" : "light"}>
@@ -69,7 +88,10 @@ function App() {
         ) : (
           <div>
             <Toaster containerStyle={{ top: 60 }} />
-            <BurgerMenu />
+            <div id="burger">
+              <BurgerMenu />
+            </div>
+
             <AppBar />
             <Routes>
               <Route path="/" element={<Layout />}>
@@ -120,7 +142,7 @@ function App() {
                 path="/reset-password-request"
                 element={
                   <PublicRoute>
-                    <ResetPassword/>
+                    <ResetPassword />
                   </PublicRoute>
                 }
               />
@@ -128,7 +150,7 @@ function App() {
                 path="/reset-password"
                 element={
                   <PublicRoute>
-                    <NewPassword/>
+                    <NewPassword />
                   </PublicRoute>
                 }
               />

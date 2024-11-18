@@ -61,7 +61,7 @@ const Calendar = () => {
         locale={language}
         allDayText="Час"
         slotMinTime={"08:00:00"}
-        slotMaxTime={"20:00:00"}
+        slotMaxTime={"23:00:00"}
         buttonText={{ today: t("today"), day: t("day"), week: t("week") }}
         googleCalendarApiKey={apiKey}
         events={{ googleCalendarId }}
