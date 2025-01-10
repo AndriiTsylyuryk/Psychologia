@@ -151,7 +151,7 @@ function App() {
                 element={
                   <PublicRoute>
                     <NewPassword />
-                  </PublicRoute>
+                    https://psychologia-eight.vercel.app/calendar                  </PublicRoute>
                 }
               />
               <Route
