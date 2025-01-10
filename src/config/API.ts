@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 
 export const myAPI = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://psychologia-back-end-production.up.railway.app/",
   withCredentials: true,
 });
 

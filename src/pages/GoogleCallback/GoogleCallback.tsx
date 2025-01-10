@@ -18,8 +18,8 @@ const GoogleCallback = () => {
       dispatch(loginWithGoogle(code))
         .unwrap()
         .then(() => {
-          toast.success(t("you have successfully logged in"));
-          navigate("/about");
+          // toast.success(t("you have successfully logged in"));
+          // navigate("/about");
         })
         .catch((error) => {
           console.error(error);
