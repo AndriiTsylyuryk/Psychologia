@@ -1,10 +1,8 @@
-import { selectToken } from "@/redux/auth/selector";
+
 import axios from "axios";
-import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
 
 export const myAPI = axios.create({
-  baseURL: "https://psychologia-back-end-production.up.railway.app/",
+  baseURL: "https://psychologia-back-end.onrender.com/",
   withCredentials: true,
 });
 
