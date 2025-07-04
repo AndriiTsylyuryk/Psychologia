@@ -96,20 +96,20 @@ const LoginForm = () => {
                 placeholder={t("enter your password")}
                 className={style.input}
               />
+              {showPassword ? (
+                <HiOutlineEye
+                className={style.eyeBtn}
+                onClick={handleTogglePassword}
+                />
+                ) : (
+                  <HiOutlineEyeOff
+                  className={style.eyeBtn}
+                  onClick={handleTogglePassword}
+                  />
+                  )}
               <Link to="/reset-password-request">
                 <p className={style.passwordText}>{t("forgot password?")}</p>
               </Link>
-              {showPassword ? (
-                <HiOutlineEye
-                  className={style.eyeBtn}
-                  onClick={handleTogglePassword}
-                />
-              ) : (
-                <HiOutlineEyeOff
-                  className={style.eyeBtn}
-                  onClick={handleTogglePassword}
-                />
-              )}
               <ErrorMessage
                 name="password"
                 component="div"

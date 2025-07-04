@@ -27,7 +27,7 @@ const GoogleCallback = () => {
     }
   }, [dispatch, location.search, navigate]);
 
-  return <div>Авторизація через Google...</div>;
+  return <div>Authorizing...</div>;
 };
 
 export default GoogleCallback;

@@ -4,15 +4,13 @@ import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import googleCalendarPlugin from "@fullcalendar/google-calendar";
 import "./CustomStyles.css";
-import { myAPI } from "@/config/API";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "@/redux/auth/selector";
 import { jwtDecode } from "jwt-decode";
 import { useTranslation } from "react-i18next";
 import { selectLanguage } from "@/redux/language/selector";
 import CalendarModal from "../Modal/CalendarModal";
-import { selectRequest } from "@/redux/modal/selectors";
-import { clearRequest, setEventData, toggleModal } from "@/redux/modal/slice";
+import {  setEventData, toggleModal } from "@/redux/modal/slice";
 import { TiLockClosedOutline } from "react-icons/ti";
 
 const Calendar = () => {
@@ -40,7 +38,7 @@ const Calendar = () => {
           <span>{eventInfo.event.title}</span>
         ) : (
           <span className="closed">
-            <TiLockClosedOutline size={20}/>
+            <TiLockClosedOutline size={20} />
             {t("timeslot unavailabe")}
           </span>
         )}
@@ -53,8 +51,7 @@ const Calendar = () => {
       <FullCalendar
         plugins={[timeGridPlugin, googleCalendarPlugin, interactionPlugin]}
         initialView={window.innerWidth < 768 ? "timeGridDay" : "timeGridWeek"}
-        height={600}
-        // eventColor="red"
+        height={"90vh"}
         headerToolbar={{ center: "timeGridWeek,timeGridDay" }}
         nowIndicator={true}
         timeZone="local"
@@ -69,12 +66,11 @@ const Calendar = () => {
         select={handleDateSelect}
         eventClick={(eventInfo) => {
           eventInfo.jsEvent.preventDefault();
-          console.log(eventInfo)
         }}
         eventContent={renderEventContent}
-        
       />
       <CalendarModal />
+     
     </div>
   );
 };

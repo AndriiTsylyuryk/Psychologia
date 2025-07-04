@@ -1,14 +1,12 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-/* justify-content: center; */
   padding: 20px;
   gap: 12px;
   background-color: var(--color-secondary);
@@ -24,7 +22,6 @@
 .input {
   width: 100%;
   padding: 10px;
-
   border-radius: 50px;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -46,7 +43,7 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 16px;
-  /* margin-bottom: 10px; */
+
 }
 
 
@@ -54,7 +51,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
+
 .passwordText {
   font-size: 12px;
   text-decoration: underline;
@@ -74,8 +73,6 @@
 }
 
 .link {
-  /* color: var(--color-text); */
-  text-decoration: none;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -87,13 +84,13 @@
   gap: 12px;
 }
 
-.title,
+/* .title,
 .form,
 .text,
 .link {
   position: relative;
   z-index: 2;
-}
+} */
 
 .error {
   color: red;
@@ -102,7 +99,8 @@
 
 .eyeBtn {
   color: var(--color-text);
-  position: relative;
-  left: 80px;
-  top: -46px;
+  position: absolute;
+  right: 0px;
+  top: 12px;
+ 
 }

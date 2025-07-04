@@ -21,13 +21,11 @@ const Home = () => {
           </div>
           <div className={style.heroImg}></div>
           <p className={style.aboutText}>
-        {t(
-          "A beginner psychologist and certified NLP (Neuro-Linguistic Programming) practitioner. I am currently in my fifth year at Sumy State Pedagogical University named after A.S. Makarenko."
-        )}
-      </p>
-          {/* </div> */}
-          {/* <div className={style.reviews}> */}
-          <Accordeon/>
+            {t(
+              "A beginner psychologist and certified NLP (Neuro-Linguistic Programming) practitioner. I am currently in my fifth year at Sumy State Pedagogical University named after A.S. Makarenko."
+            )}
+          </p>
+          <Accordeon />
           <ReviewSlider />
           <div className={style.media}>
             <a
@@ -35,11 +33,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LiaInstagram
-                className={style.icon}
-                size={50}
-                color="#9f2466"
-              />
+              <LiaInstagram className={style.icon} size={50} color="#9f2466" />
             </a>
             <a
               href="https://wa.me/37253704388"
@@ -49,7 +43,6 @@ const Home = () => {
               <FaWhatsapp className={style.icon} size={45} color="green" />
             </a>
           </div>
-          {/* </div> */}
         </>
       )}
     </div>

@@ -39,10 +39,6 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(selectedOption.value);
   };
 
-  const handleLanguageToggle = () => {
-    const nextLanguage = language === "en" ? "uk" : "en";
-    handleChange({ value: nextLanguage });
-  };
 
   const customStyles = {
     indicatorsContainer: (provided) => ({
@@ -61,6 +57,7 @@ const LanguageSwitcher = () => {
     }),
     menu: (provided) => ({
       ...provided,
+       zIndex: 9999,
       // display: "none", 
     }),
     singleValue: (provided) => ({
@@ -78,7 +75,7 @@ const LanguageSwitcher = () => {
         onChange={handleChange}
         isSearchable={false}
         styles={customStyles}
-        // menuIsOpen={false} // вимикаємо випадаюче меню
+        
       />
     </div>
   );

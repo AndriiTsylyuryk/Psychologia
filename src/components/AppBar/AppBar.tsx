@@ -4,12 +4,11 @@ import { selectIsLoggedIn, selectUser } from "../../redux/auth/selector";
 import { NavLink } from "react-router-dom";
 import { logoutThunk } from "../../redux/auth/operations";
 import styles from "./AppBar.module.css";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import NightButton from "../NightButton/NightButton";
 import toast from "react-hot-toast";
-// import { logoutThunk } from "@/redux/auth/operations";
 
 const AppBar = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
@@ -34,7 +33,7 @@ const AppBar = () => {
             </p>
           </NavLink>
         )}
-          {isLoggendIn && (
+        {isLoggendIn && (
           <NavLink to="/about">
             <p className={styles.name}>
               Aліна Смєлянець <span>Psychologist</span>
@@ -45,14 +44,56 @@ const AppBar = () => {
         <LanguageSwitcher />
       </div>
       <div className={styles.navigation}>
-        <NightButton />
-        {!isLoggendIn && <NavLink to="/login">{t("sign in")}</NavLink>}
-        {!isLoggendIn && <NavLink to="/register">{t("register")}</NavLink>}
+        <div>
+          <NightButton />
+        </div>
+
+        {!isLoggendIn && (
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? styles.activeNav : undefined
+            }
+          >
+            {t("sign in")}
+          </NavLink>
+        )}
+        {!isLoggendIn && (
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              isActive ? styles.activeNav : undefined
+            }
+          >
+            {t("register")}
+          </NavLink>
+        )}
         {isLoggendIn && (
           <>
-            <NavLink to="/about">{t("about")}</NavLink>
-            <NavLink to="/calendar">{t("calendar")}</NavLink>
-            <NavLink to="/prices">{t("prices")}</NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? styles.activeNav : undefined
+              }
+            >
+              {t("about")}
+            </NavLink>
+            <NavLink
+              to="/calendar"
+              className={({ isActive }) =>
+                isActive ? styles.activeNav : undefined
+              }
+            >
+              {t("calendar")}
+            </NavLink>
+            <NavLink
+              to="/prices"
+              className={({ isActive }) =>
+                isActive ? styles.activeNav : undefined
+              }
+            >
+              {t("prices")}
+            </NavLink>
             <button
               onClick={() => {
                 handleLogout();

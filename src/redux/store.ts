@@ -14,23 +14,35 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
-import { AuthState } from "./authTypes/authTypes";
+
 import { modalReducer } from "./modal/slice";
 import { passwordReducer } from "./password/slice";
 
-const persistConfig = {
-  key: "root",
+const authPersistConfig = {
+  key: "auth",
   version: 1,
   storage,
-  whitelist: ["accessToken", "isDark", "language"],
+  whitelist: ["accessToken"],
+};
+const themePersistConfig = {
+  key: "theme",
+  version: 1,
+  storage,
+  whitelist: ["isDark"],
+};
+const languagePersistConfig = {
+  key: "language",
+  version: 1,
+  storage,
+  whitelist: ["language"],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     burger: burgerReducer,
-    theme: persistReducer(persistConfig, themeReducer),
-    language: persistReducer(persistConfig, languageReducer),
+    theme: persistReducer(themePersistConfig, themeReducer),
+    language: persistReducer(languagePersistConfig, languageReducer),
     modal: modalReducer,
     password: passwordReducer,
   },
@@ -44,9 +56,8 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export type RootState = {
-  auth: AuthState;
-};
+export type RootState = ReturnType<typeof store.getState>;
+
 export type AppDispatch = typeof store.dispatch;
 
 export interface UserType {

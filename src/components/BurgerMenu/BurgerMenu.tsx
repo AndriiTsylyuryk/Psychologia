@@ -80,7 +80,9 @@ const BurgerMenu = () => {
           </button>
         </>
       )}
-      <NightButton />
+      <div>
+        <NightButton />
+      </div>
     </Menu>
   );
 };

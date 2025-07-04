@@ -6,21 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 const NightButton = () => {
   const isDark = useSelector(selectIsLight);
-
   const dispatch = useDispatch();
-
   const handleToggleTheme = () => {
     dispatch(toggleTheme());
   };
 
   return (
-    <div>
-      <DarkModeToggle
-        size={50}
-        onChange={() => handleToggleTheme()}
-        checked={isDark}
-      />
-    </div>
+    <DarkModeToggle
+      size={50}
+      onChange={() => handleToggleTheme()}
+      checked={isDark}
+    />
   );
 };
 
