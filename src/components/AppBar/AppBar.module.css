@@ -54,7 +54,6 @@
     display: flex;
     gap: 12px;
     align-items: center;
-    /* justify-content: center; */
   }
   .navigation a {
     padding: 12px;
@@ -67,8 +66,6 @@
   .navigation a:hover {
     background-color: rgba(131, 139, 148, 0.08);
     color: var(--color-primary);
-    /* padding: 12px;
-    border-radius: 12px; */
   }
 }
 

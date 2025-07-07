@@ -19,6 +19,16 @@
   background-color: var(--color-primary);
 }
 
+/* .form a {
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 6px;
+}
+.form a:hover {
+  background-color: rgba(131, 139, 148, 0.08);
+  color: var(--color-primary);
+} */
+
 .input {
   width: 100%;
   padding: 10px;
@@ -37,17 +47,18 @@
 .button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   background-color: var(--color-text);
   color: var(--color-secondary);
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
   font-size: 16px;
-
 }
-
-
-.passwordSection{
+.button:hover {
+  background-color: #555;
+}
+.passwordSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +69,6 @@
   font-size: 12px;
   text-decoration: underline;
 }
-
 
 .text {
   font-size: 14px;
@@ -84,14 +94,6 @@
   gap: 12px;
 }
 
-/* .title,
-.form,
-.text,
-.link {
-  position: relative;
-  z-index: 2;
-} */
-
 .error {
   color: red;
   font-size: 12px;
@@ -102,5 +104,4 @@
   position: absolute;
   right: 0px;
   top: 12px;
- 
 }

@@ -44,17 +44,14 @@ const AppBar = () => {
         <LanguageSwitcher />
       </div>
       <div className={styles.navigation}>
-        <div>
-          <NightButton />
-        </div>
-
+        <NightButton />
         {!isLoggendIn && (
           <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? styles.activeNav : undefined
-            }
-          >
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? styles.activeNav : undefined
+        }
+        >
             {t("sign in")}
           </NavLink>
         )}
