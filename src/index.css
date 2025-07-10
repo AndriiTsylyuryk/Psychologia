@@ -9,6 +9,7 @@
   --color-dark-text: #e0e0e0;
   --color-accordeon: #769d7072;
   --color-button-active: #5aa8f6;
+  --color-info: rgb(255, 107, 10);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -36,6 +37,14 @@ body {
   color: var(--color-primary);
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
+p{
+  margin: 0;
+}
 button,
 input,
 textarea {

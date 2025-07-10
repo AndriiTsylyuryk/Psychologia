@@ -70,5 +70,7 @@
   "forgot password?": "Forgot password?",
   "request sent successfully, await for email!": "Request sent successfully, await for email!",
   "enter new password": "Enter new password...",
-  "password updated": "Password updated!"
+  "password updated": "Password updated!",
+  "Request an event": "Request an event",
+  "Please describe your request or anything you want to add below.": "Please describe your request or anything you want to add below."
 }

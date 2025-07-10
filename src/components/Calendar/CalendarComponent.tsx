@@ -10,7 +10,7 @@ import { jwtDecode } from "jwt-decode";
 import { useTranslation } from "react-i18next";
 import { selectLanguage } from "@/redux/language/selector";
 import CalendarModal from "../Modal/CalendarModal";
-import {  setEventData, toggleModal } from "@/redux/modal/slice";
+import { setEventData, toggleModal } from "@/redux/modal/slice";
 import { TiLockClosedOutline } from "react-icons/ti";
 
 const Calendar = () => {
@@ -23,20 +23,20 @@ const Calendar = () => {
 
   const handleDateSelect = async (selectInfo) => {
     const { start, end } = selectInfo;
-
     dispatch(setEventData({ start, end }));
-
     dispatch(toggleModal());
   };
 
   const renderEventContent = (eventInfo) => {
     const relatedEvent = eventInfo.event._def.extendedProps.description;
     const decodedToken = jwtDecode(token);
+    console.log(eventInfo);
     return (
       <span>
         {relatedEvent === decodedToken.email ? (
           <span>{eventInfo.event.title}</span>
         ) : (
+          // <span>{}</span>
           <span className="closed">
             <TiLockClosedOutline size={20} />
             {t("timeslot unavailabe")}
@@ -64,13 +64,27 @@ const Calendar = () => {
         events={{ googleCalendarId }}
         selectable={true}
         select={handleDateSelect}
+        visibleRange={{
+          start: new Date().toISOString().slice(0, 10),
+          end: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
+            .toISOString()
+            .slice(0, 10),
+        }}
+        validRange={{
+          start: new Date().toISOString().slice(0, 10),
+          end: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
+            .toISOString()
+            .slice(0, 10),
+        }}
         eventClick={(eventInfo) => {
           eventInfo.jsEvent.preventDefault();
+          if (eventInfo.event.url) {
+            window.open(eventInfo.event.url, "_blank", "noopener,noreferrer");
+          }
         }}
         eventContent={renderEventContent}
       />
       <CalendarModal />
-     
     </div>
   );
 };

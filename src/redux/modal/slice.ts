@@ -20,11 +20,12 @@ const slice = createSlice({
       state.request = "";
     },
     setEventData(state, action) {
-      state.eventData = action.payload; 
+      state.eventData = action.payload;
     },
   },
 });
 
-export const { setRequest, toggleModal, clearRequest,setEventData  } = slice.actions;
+export const { setRequest, toggleModal, clearRequest, setEventData } =
+  slice.actions;
 
 export const modalReducer = slice.reducer;

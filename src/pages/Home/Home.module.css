@@ -56,11 +56,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-   
   }
   .aboutText {
     font-size: 18px;
     text-align: left;
+  }
+  .span {
+    font-size: 28px;
   }
 
   .heroImg {

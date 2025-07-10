@@ -12,7 +12,7 @@ import { selectToken } from "@/redux/auth/selector";
 import { selectIsLight } from "@/redux/burger/selectors";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
-
+import loginFormStyles from "../LoginForm/LoginForm.module.css";
 const CalendarModal = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -38,7 +38,9 @@ const CalendarModal = () => {
               Authorization: `Bearer ${token}`,
             },
           }
-        ),
+        ).then(() => {
+          window.location.reload();
+        }),
         {
           loading: t("sending request..."),
           success: t("request sent successfully!"),
@@ -59,44 +61,73 @@ const CalendarModal = () => {
   };
 
   return (
-    <div>
-      <div>
-        <Modal
-          open={isOpen}
-          className={style.modalContentMain}
-          onClose={handleClose}
+    <Modal
+      open={isOpen}
+      className={style.modalContentMain}
+      onClose={handleClose}
+    >
+      <Box className={style.modalContent}>
+        <Formik
+          initialValues={{ request: "" }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
         >
-          <Box className={style.modalContent}>
-            <IoMdClose className={style.closeBtn} onClick={handleClose} />
-            <Formik
-              initialValues={{ request: "" }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <Form
-                className={style.form}
-                data-theme={isDark ? "dark" : "light"}
-              >
-                <Field
-                  className={style.input}
-                  name="request"
-                  type="text"
-                  placeholder={t("Describe details...")}
-                />
-                <ErrorMessage
-                  name="request"
-                  component="div"
-                  className={style.error}
-                />
-                <button className={style.button} type="submit">
-                  {t("send")}
-                </button>
-              </Form>
-            </Formik>
-          </Box>
-        </Modal>
-      </div>
-    </div>
+          <Form className={style.form} data-theme={isDark ? "dark" : "light"}>
+            <div className={style.modalHeader}>
+              <h2 className={style.modalTitle}>{t("Request an event")}</h2>
+              <IoMdClose
+                className={style.closeBtn}
+                size={30}
+                onClick={handleClose}
+              />
+            </div>
+            <p className={style.modalTiming}>
+              {start
+                ? (() => {
+                    const date = new Date(start);
+                    const day = String(date.getDate()).padStart(2, "0");
+                    const month = String(date.getMonth() + 1).padStart(2, "0");
+                    const year = date.getFullYear();
+                    const hours = String(date.getHours()).padStart(2, "0");
+                    const minutes = String(date.getMinutes()).padStart(2, "0");
+                    return `${day}.${month}.${year} ${hours}:${minutes}`;
+                  })()
+                : ""}{" "}
+              -{" "}
+              {end
+                ? (() => {
+                    const date = new Date(end);
+                    const day = String(date.getDate()).padStart(2, "0");
+                    const month = String(date.getMonth() + 1).padStart(2, "0");
+                    const year = date.getFullYear();
+                    const hours = String(date.getHours()).padStart(2, "0");
+                    const minutes = String(date.getMinutes()).padStart(2, "0");
+                    return `${day}.${month}.${year} ${hours}:${minutes}`;
+                  })()
+                : ""}
+            </p>
+            <p className={style.modalDescription}>
+              {t("Please describe your request for the calendar event below.")}
+            </p>
+
+            <Field
+              className={style.input}
+              name="request"
+              type="text"
+              placeholder={t("Describe details...")}
+            />
+            <ErrorMessage
+              name="request"
+              component="div"
+              className={style.error}
+            />
+            <button className={loginFormStyles.button} type="submit">
+              {t("send")}
+            </button>
+          </Form>
+        </Formik>
+      </Box>
+    </Modal>
   );
 };
 

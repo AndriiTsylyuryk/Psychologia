@@ -1,5 +1,3 @@
-import { myAPI } from "@/config/API";
-
 import { FcGoogle } from "react-icons/fc";
 import style from "./GoogleLogin.module.css";
 import { useDispatch } from "react-redux";

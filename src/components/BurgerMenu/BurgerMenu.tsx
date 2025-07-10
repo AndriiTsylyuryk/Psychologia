@@ -10,6 +10,7 @@ import { toggleBurgerMenu } from "@/redux/burger/slice";
 import NightButton from "../NightButton/NightButton";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
+import style from "./BurgerMenu.module.css";
 
 const BurgerMenu = () => {
   const isLoggendIn = useSelector(selectIsLoggedIn);
@@ -71,6 +72,7 @@ const BurgerMenu = () => {
           </NavLink>
 
           <button
+            className={style.button}
             onClick={() => {
               handleLogout();
               handleCloseMenu();

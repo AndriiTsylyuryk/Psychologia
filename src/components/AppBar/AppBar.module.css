@@ -15,6 +15,7 @@
 .name {
   font-weight: bold;
   font-size: 14px;
+  /* margin: 0; */
 }
 
 .name > span {
@@ -25,13 +26,13 @@
   display: none;
 }
 
-.activeNav {
-  /* background-color: rgba(40, 96, 153, 0.15);
+/* .activeNav {
+  background-color: rgba(40, 96, 153, 0.15);
   color: var(--color-primary);
   padding: 12px;
   border-radius: 12px;
-   */
-}
+  
+} */
 
 /* .navigation a:hover,
 .navigation a:focus {
@@ -43,7 +44,8 @@
 
 @media screen and (min-width: 768px) {
   .name {
-    font-size: 18px;
+    font-size: 16px;
+    width: 100px;
   }
   .headerContainer {
     gap: 0px;
@@ -52,8 +54,14 @@
 
   .navigation {
     display: flex;
-    gap: 12px;
+    gap: 6px;
     align-items: center;
+  }
+
+  .logoLink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   .navigation a {
     padding: 12px;
@@ -70,6 +78,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .name {
+    font-size: 18px;
+    width: inherit;
+  }
   .navigation {
     font-size: 18px;
   }
